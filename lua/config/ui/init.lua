@@ -1,0 +1,5 @@
+Safe_Require("config.ui.theme")
+Safe_Require("config.ui.highlight")
+Safe_Require("config.ui.whichkey")
+Safe_Require("config.ui.diagnostic")
+Safe_Require("config.ui.lsp")

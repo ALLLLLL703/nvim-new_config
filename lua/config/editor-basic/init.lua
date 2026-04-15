@@ -1,0 +1,6 @@
+Safe_Require("config.editor-basic.completion")
+Safe_Require("config.editor-basic.treesitter")
+Safe_Require("config.editor-basic.fold")
+Safe_Require("config.editor-basic.autopair")
+Safe_Require("config.editor-basic.buffer")
+Safe_Require("config.editor-basic.format")

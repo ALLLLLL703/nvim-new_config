@@ -1,0 +1,21 @@
+{
+    "workspace.library": [
+        "/usr/share/nvim/runtime/lua",
+        "/home/sanae/.config/nvim/lua",
+	"/home/sanae/.local/share/nvim/site/pack/core/opt/conform.nvim/lua/",
+	"/home/sanae/.local/share/nvim/site/pack/core/opt/lspsaga.nvim/lua/",
+	"/home/sanae/.local/share/nvim/site/pack/core/opt/which-key.nvim/lua/",
+	
+        "${3rd}/luassert/library"
+    ],
+    "diagnostics.globals": [
+        "local",
+        "str"
+    ],
+		"runtime": {
+    "version": "LuaJIT",
+    "special": {
+      "Safe_Require": "require"
+    }
+  },
+}
