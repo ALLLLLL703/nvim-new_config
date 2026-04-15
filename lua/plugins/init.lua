@@ -21,4 +21,5 @@ vim.pack.add({
 	Safe_Require("plugins.lsp-relative.snippets.Luasnip"),
 	Safe_Require("plugins.lsp-relative.snippets.friendly-snippet"),
 	Safe_Require("plugins.ui.lspsaga3"),
+	Safe_Require("plugins.editor-basic.snacks1"),
 })

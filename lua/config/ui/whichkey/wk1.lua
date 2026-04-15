@@ -1,6 +1,12 @@
 local wk = Safe_Require("which-key")
 wk.setup({
-	preset = "modern",
+	preset = "classic",
+	---@type wk.Win.opts
+	win = {
+		no_overlap = true,
+		width = { min = 40, max = 100 },
+		border = "rounded",
+	},
 })
 wk.add({
 	{ "<leader>-", group = "file", icon = "󰇥" },
@@ -15,4 +21,10 @@ wk.add({
 	{ "<leader>ls", icon = "" },
 	{ "<leader>lr", icon = "" },
 	{ "<leader>l", group = "code", icon = "" },
+	{ "<leader>b", group = "buffer", icon = "" },
+	{ "<leader>u", group = "ui", icon = "" },
+	{ "<leader>uC", icon = "󰔎" },
+	{ "<leader>s", group = "split", icon = "󰃻" },
+	{ "<leader>sh", icon = "󰤻" },
+	{ "<leader>sv", icon = "󰤼" },
 })
