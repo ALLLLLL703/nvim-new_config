@@ -5,6 +5,7 @@ wk.setup({
 	win = {
 		no_overlap = true,
 		width = { min = 40, max = 100 },
+		height = { max = 30 },
 		border = "rounded",
 	},
 })
@@ -27,4 +28,9 @@ wk.add({
 	{ "<leader>s", group = "split", icon = "󰃻" },
 	{ "<leader>sh", icon = "󰤻" },
 	{ "<leader>sv", icon = "󰤼" },
+	{ "<leader>ss", icon = "", group = "search" },
+	{ "<leader>ssi", icon = "" },
+	{ "<leader>ssk", icon = "🎹" },
+	{ "<leader>fs", icon = "" },
+	{ "<leader>fw", icon = "" },
 })

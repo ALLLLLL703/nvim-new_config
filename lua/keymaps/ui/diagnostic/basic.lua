@@ -1,4 +1,3 @@
 vim.keymap.set({ "n", "v" }, "<leader>ti", function()
-	local enabled = vim.lsp.inlay_hint.is_enabled()
-	vim.lsp.inlay_hint.enable(not enabled)
+	Snacks.toggle.inlay_hints()
 end, { desc = "toggle inlay hint" })
