@@ -23,3 +23,9 @@ vim.pack.add({
 	Safe_Require("plugins.ui.lspsaga3"),
 	Safe_Require("plugins.editor-basic.snacks1"),
 })
+vim.pack.add(Safe_Require("plugins.editor-basic.neotree1"))
+vim.pack.add(Safe_Require("plugins.ui.dap1"))
+vim.pack.add(Safe_Require("plugins.lsp-relative.mason1"))
+vim.pack.add(Safe_Require("plugins.ui.opacity1"))
+vim.pack.add(Safe_Require("plugins.lsp-relative.schemas.schemasstore1"))
+vim.pack.add(Safe_Require("plugins.ui.noice1"))

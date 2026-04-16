@@ -1,22 +1,36 @@
 {
-    "workspace.library": [
-        "/usr/share/nvim/runtime/lua",
-        "/home/sanae/.config/nvim/lua",
-	"/home/sanae/.local/share/nvim/site/pack/core/opt/conform.nvim/lua/",
-	"/home/sanae/.local/share/nvim/site/pack/core/opt/lspsaga.nvim/lua/",
-	"/home/sanae/.local/share/nvim/site/pack/core/opt/which-key.nvim/lua/",
-	"/home/sanae/.local/share/nvim/site/pack/core/opt/snacks.nvim/lua/",
-	
-        "${3rd}/luassert/library"
-    ],
-    "diagnostics.globals": [
-        "local",
-        "str"
-    ],
-		"runtime": {
-    "version": "LuaJIT",
-    "special": {
-      "Safe_Require": "require"
-    }
-  },
+	"$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+	"workspace": {
+		"library": [
+			"/usr/share/nvim/runtime/lua",
+			"/home/sanae/.config/nvim/lua",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/conform.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/lspsaga.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/which-key.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/snacks.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/neo-tree.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-dap/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-dap-ui/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-dap-virtual-text/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/mason.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/noice.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/blink.cmp/lua/",
+			"${3rd}/luassert/library"
+		],
+		"ignoreDir": [
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/mason.nvim/lua/mason/ui/components/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/noice.nvim/lua/telescope/"
+		]
+	},
+	"diagnostics.globals": [
+		"local",
+		"str"
+	],
+	"runtime": {
+		"version": "LuaJIT",
+		"special": {
+			"Safe_Require": "require"
+		},
+		"pathStrict": true
+	}
 }

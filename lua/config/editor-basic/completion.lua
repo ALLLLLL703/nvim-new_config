@@ -1,4 +1,4 @@
-local M = {
+Safe_Require("blink.cmp").setup({
 	cmdline = {
 		keymap = {
 			preset = "none",
@@ -9,15 +9,12 @@ local M = {
 
 			["<C-n>"] = { "select_next", "fallback" },
 			["<C-p>"] = { "select_prev", "fallback" },
-			["<Right>"] = { "select_next", "fallback" },
-			["<Left>"] = { "select_prev", "fallback" },
 
 			["<C-o>"] = { "select_and_accept" },
 			["<C-e>"] = { "cancel" },
 		},
 		completion = { menu = { auto_show = true } },
 	},
-
 	keymap = {
 		preset = "none",
 		["<C-t>"] = { "show", "show_documentation", "hide_documentation" },
@@ -84,6 +81,5 @@ local M = {
 			end,
 		},
 	},
-}
-
-Safe_Require("blink.cmp").setup(M)
+	completion = { documentation = { auto_show = true } },
+})

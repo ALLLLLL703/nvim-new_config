@@ -15,7 +15,7 @@ local hl_map = {
 }
 vim.diagnostic.config({
 	virtual_text = {
-		prefix = "",
+		prefix = "",
 	},
 
 	signs = {

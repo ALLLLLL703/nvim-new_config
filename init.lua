@@ -8,6 +8,9 @@ function Safe_Require(module)
 	end
 	return result
 end
+if vim.g.vscode then
+	return
+end
 Safe_Require("plugins")
 Safe_Require("config")
 Safe_Require("keymaps")
