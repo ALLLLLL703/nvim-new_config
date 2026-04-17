@@ -2,7 +2,7 @@
 Safe_Require("noice").setup({
 	lsp = {
 		hover = {
-			enabled = true,
+			enabled = false,
 		},
 		popumenu = {
 			enabled = false,

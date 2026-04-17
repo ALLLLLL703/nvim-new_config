@@ -1,0 +1,10 @@
+{
+	"suggest.enablePreview": false,
+	"suggest.enable": false, // 禁用补全，交给原生 LSP
+	"diagnostic.enable": false, // 禁用诊断，交给原生 LSP
+	"coc.preferences.hoverTarget": "float",
+	"signature.enable": false, // 禁用签名帮助
+	"codeLens.enable": false,
+	"notification.statusLine": false, // 禁用状态栏消息
+	"coc.preferences.formatOnSave": false
+}

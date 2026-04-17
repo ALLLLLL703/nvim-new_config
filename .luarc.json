@@ -15,6 +15,9 @@
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/mason.nvim/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/noice.nvim/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/blink.cmp/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/bufferline.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-ufo/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-jdtls/lua/",
 			"${3rd}/luassert/library"
 		],
 		"ignoreDir": [
