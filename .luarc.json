@@ -18,6 +18,7 @@
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/bufferline.nvim/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-ufo/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-jdtls/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/avante.nvim/lua/",
 			"${3rd}/luassert/library"
 		],
 		"ignoreDir": [

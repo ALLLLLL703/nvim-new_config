@@ -13,24 +13,43 @@ Safe_Require("lspsaga").setup(M)
 local saga_hover = Safe_Require("lspsaga.hover")
 
 if saga_hover then
-	-- 备份原有的 open_link 函数
 	local original_open_link = saga_hover.open_link
+	---@return string
+	-- 备份原有的 open_link 函数
 
-	-- 重新定义它
-	---@diagnostic disable-next-line: duplicate-set-field
-	saga_hover.open_link = function()
-		-- Lspsaga 的跳转逻辑通常是获取光标下的 URL
-		-- 我们直接从当前光标位置提取 cfile
-		local url = vim.fn.expand("<cfile>")
+	local function extract_jdt_uri_at_cursor()
+		local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+		local line = vim.api.nvim_get_current_line()
 
-		if url:match("^jdt://") then
-			-- 既然在浮窗里，先关掉浮窗
-			vim.cmd("SagaClose")
-			-- 使用我们验证成功的 edit 命令跳转
-			vim.cmd("edit " .. vim.fn.fnameescape(url))
-		else
-			-- 如果不是 jdt，则调用原来的逻辑（处理 https 等）
-			original_open_link()
+		local candidates = {}
+		for s, e in line:gmatch("()jdt://[^%s&)]+()") do
+			table.insert(candidates, { s = s, e = e - 1 })
 		end
+		if #candidates == 0 then
+			return nil
+		end
+		for _, c in ipairs(candidates) do
+			if col + 1 >= c.s then
+				local uri = line:sub(c.s, c.e)
+				uri = uri:gsub("[`>]+$", ""):gsub("^[`>]+", "")
+				return uri
+			end
+		end
+		local uri = line:sub(candidates[1].s, candidates[1].e)
+		uri = uri:gsub("[`>]+$", ""):gsub("^[`>]+", "")
+		return uri
+	end
+	function saga_hover:open_link()
+		local uri = extract_jdt_uri_at_cursor()
+		if uri and uri:match("^jdt://") then
+			local ok, jdtls = pcall(require, "jdtls")
+			if ok and jdtls and jdtls.open_classfile then
+				vim.cmd("edit " .. vim.fn.fnameescape(uri))
+			else
+				vim.cmd("edit " .. vim.fn.fnameescape(uri))
+			end
+			return
+		end
+		return original_open_link(self)
 	end
 end

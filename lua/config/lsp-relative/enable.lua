@@ -1,3 +1,7 @@
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("json_ls")
 vim.lsp.enable("marksman")
+vim.lsp.enable("lemminx")
+vim.lsp.enable("cmake")
+vim.lsp.enable("taplo")
+vim.lsp.enable("bash")
