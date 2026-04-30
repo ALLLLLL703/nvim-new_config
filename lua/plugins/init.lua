@@ -22,6 +22,8 @@ vim.pack.add({
 	Safe_Require("plugins.lsp-relative.snippets.friendly-snippet"),
 	Safe_Require("plugins.ui.lspsaga3"),
 	Safe_Require("plugins.editor-basic.snacks1"),
+	"https://github.com/oribarilan/lensline.nvim",
+	"https://github.com/lewis6991/gitsigns.nvim",
 })
 vim.pack.add(Safe_Require("plugins.editor-basic.neotree1"))
 vim.pack.add(Safe_Require("plugins.ui.dap1"))
@@ -39,4 +41,14 @@ vim.pack.add(Safe_Require("plugins.lsp-relative.rust1"))
 vim.pack.add(Safe_Require("plugins.ui.rainbow-delimiters1"))
 vim.pack.add(Safe_Require("plugins.editor-basic.ai"))
 vim.pack.add(Safe_Require("plugins.ui.lualine1"))
+vim.pack.add(Safe_Require("plugins.lsp-relative.omnisharp1"))
+vim.pack.add(Safe_Require("plugins.lsp-relative.lspconfig1"))
+vim.pack.add(Safe_Require("plugins.editor-basic.telescope1"))
+vim.pack.add(Safe_Require("plugins.editor-basic.telescope1"))
+vim.pack.add(Safe_Require("plugins.editor-basic.oil1"))
+vim.pack.add(Safe_Require("plugins.ui.undo"))
+vim.pack.add(Safe_Require("plugins.ui.colorful-menu1"))
+vim.pack.add(Safe_Require("plugins.lsp-relative.csharp2"))
+vim.pack.add(Safe_Require("plugins.ui.cluade1"))
+-- vim.pack.add(Safe_Require("plugins.minecraft-dev1"))
 Safe_Require("plugins.util")

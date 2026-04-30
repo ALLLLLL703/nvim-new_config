@@ -43,6 +43,10 @@ end, { silent = true, desc = "lazygit" })
 vim.keymap.set("n", "<leader>ssi", function()
 	Snacks.picker.icons()
 end, { desc = "icons search" })
+vim.keymap.set("i", "<C-S-I>", function()
+	Snacks.picker.icons()
+end, { desc = "icons search" })
+
 vim.keymap.set("n", "<leader>ssk", function()
 	Snacks.picker.keymaps()
 end, { desc = "keymaps search" })
@@ -52,11 +56,6 @@ end, { desc = "keymaps search" })
 vim.keymap.set("n", "<leader>ssh", function()
 	Snacks.picker.highlights()
 end, { desc = "highlights search" })
-vim.keymap.set("n", "<leader>gb", function()
-	---@type snacks.terminal.Opts
-	local opts = {}
-	Snacks.git.blame_line(opts)
-end)
 vim.keymap.set({ "n", "t" }, "<c-/>", function()
 	---@type snacks.terminal.Opts
 	local opts = {}

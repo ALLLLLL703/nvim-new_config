@@ -1,3 +1,12 @@
+---@return string
+local function current_micro_recording()
+	local a = vim.fn.reg_recording()
+	if not a or a == "" then
+		return ""
+	else
+		return string.format("记录中:@%s", a)
+	end
+end
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
@@ -33,10 +42,10 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diagnostics" },
-		lualine_c = { "filename", "diff" },
+		lualine_b = { "branch", "diff" },
+		lualine_c = { "filename", "diagnostics" },
 		lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_y = { "progress" },
+		lualine_y = { "progress", current_micro_recording },
 		lualine_z = { "location" },
 	},
 	inactive_sections = {
@@ -50,5 +59,5 @@ require("lualine").setup({
 	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
-	extensions = {},
+	extensions = { "man" },
 })

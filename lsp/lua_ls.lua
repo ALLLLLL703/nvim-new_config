@@ -93,7 +93,9 @@ return {
 			workspace = {
 				library = {
 					vim.fn.expand("~/.luarocks/share/lua/5.3"),
+
 					"/usr/share/lua/5.3",
+					"/usr/share/nvim/runtime/lua",
 				},
 			},
 		},

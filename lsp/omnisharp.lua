@@ -53,7 +53,9 @@ return {
 			-- for projects that are relevant to code that is being edited. With this
 			-- setting enabled OmniSharp may load fewer projects and may thus display
 			-- incomplete reference lists for symbols.
-			LoadProjectsOnDemand = true,
+			LoadProjectsOnDemand = false,
+
+			-- useBundledMSBuild = true,
 		},
 		RoslynExtensionsOptions = {
 			-- Enables support for roslyn analyzers, code fixes and rulesets.
@@ -64,12 +66,18 @@ return {
 			-- have a negative impact on initial completion responsiveness,
 			-- particularly for the first few completion sessions after opening a
 			-- solution.
-			EnableImportCompletion = nil,
+			EnableImportCompletion = true,
 			-- Only run analyzers against open files when 'enableRoslynAnalyzers' is
 			-- true
-			AnalyzeOpenDocumentsOnly = nil,
+			AnalyzeOpenDocumentsOnly = true,
+			enableRoslynAnalyzers = true,
 			-- Enables the possibility to see the code in external nuget dependencies
 			EnableDecompilationSupport = true,
+			InlayHintsOption = {
+				EnableForParameters = true,
+				ForLiteralParameters = true,
+				EnableForTypes = true,
+			},
 		},
 		RenameOptions = {
 			RenameInComments = true,
@@ -80,6 +88,9 @@ return {
 			-- Specifies whether to include preview versions of the .NET SDK when
 			-- determining which version to use for project loading.
 			IncludePrereleases = true,
+		},
+		Scirpt = {
+			enabled = true,
 		},
 	},
 }
