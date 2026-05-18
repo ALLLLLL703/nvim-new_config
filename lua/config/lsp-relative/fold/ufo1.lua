@@ -5,11 +5,17 @@ vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decr
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
----@type UfoConfig
-local opts = {}
-
 require("ufo").setup({
 	provider_selector = function(bufnr, filetype, buftype)
 		return { "treesitter", "indent" }
 	end,
+	close_fold_kinds_for_ft = {
+		default = { "imports", "comment" },
+		java = { "imports", "comment" },
+		json = { "array" },
+	},
+	close_fold_current_line_for_ft = {
+		default = true,
+		c = false,
+	},
 })

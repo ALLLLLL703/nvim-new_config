@@ -22,10 +22,10 @@ dap.adapters.codelldb = {
 	name = "codelldb",
 }
 
-dap.adapters.rust_cpptool = {
+dap.adapters.cpptool = {
 	type = "executable",
-	command = "cppdbg",
-	name = "rust_cpptool",
+	command = vim.fn.stdpath("data") .. "/mason/bin/OpenDebugAD7",
+	name = "cpptool",
 	options = {
 		detached = false,
 	},
@@ -82,7 +82,7 @@ dap.configurations = {
 	rust = {
 		{
 			name = "Launch",
-			type = "rust_cpptool",
+			type = "cpptool",
 			request = "launch",
 			program = function()
 				return vim.fn.input("Path to executable", vim.fn.getcwd() .. "/", "file")

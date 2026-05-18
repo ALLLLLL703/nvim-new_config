@@ -1,5 +1,6 @@
 vim.pack.add({
 	"https://github.com/saghen/blink.cmp",
+	"https://github.com/saghen/blink.lib",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/zaldih/themery.nvim",
 	"https://github.com/catppuccin/nvim",
@@ -51,4 +52,9 @@ vim.pack.add(Safe_Require("plugins.ui.colorful-menu1"))
 vim.pack.add(Safe_Require("plugins.lsp-relative.csharp2"))
 vim.pack.add(Safe_Require("plugins.ui.cluade1"))
 -- vim.pack.add(Safe_Require("plugins.minecraft-dev1"))
+vim.pack.add(Safe_Require("plugins.editor-basic.comment1"))
+vim.pack.add(Safe_Require("plugins.editor-basic.textobject1"))
+vim.pack.add(Safe_Require("plugins.editor-basic.http1"))
+vim.pack.add(Safe_Require("plugins.editor-basic.refact1"))
+vim.pack.add(Safe_Require("plugins.ui.colorizer1"))
 Safe_Require("plugins.util")

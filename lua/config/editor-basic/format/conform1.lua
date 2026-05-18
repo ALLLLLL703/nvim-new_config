@@ -7,6 +7,9 @@ conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		rust = { "rustfmt" },
+		cs = { "csharpier" },
+		cpp = { "clang-format" },
+		c = { "clang-format" },
 	},
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
