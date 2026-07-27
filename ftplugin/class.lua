@@ -94,11 +94,15 @@ attach()
 -- 		end)
 -- 	end,
 -- })
+local group = vim.api.nvim_create_augroup("config.jdt_classfiles", { clear = true })
+
 vim.api.nvim_create_autocmd("BufReadCmd", {
+	group = group,
 	pattern = "jdt://*",
 	callback = function()
 		local uri = vim.fn.expand("<amatch>")
 		-- nvim-jdtls 提供的标准跳转 API
 		require("jdtls").open_classfile(uri)
 	end,
+	desc = "Open JDT class file",
 })

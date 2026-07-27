@@ -15,7 +15,11 @@ vim.keymap.set(
 )
 vim.keymap.set({ "n", "t" }, "<A-x>", "<cmd>Lspsaga term_toggle<cr>")
 vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>")
+
+local group = vim.api.nvim_create_augroup("config.lspsaga_keymaps", { clear = true })
+
 vim.api.nvim_create_autocmd("LspAttach", {
+	group = group,
 	callback = function(args)
 		-- 针对当前 buffer 强制覆盖 K
 		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", {
@@ -23,4 +27,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			desc = "Lspsaga Hover (Forced)",
 		})
 	end,
+	desc = "Set Lspsaga keymaps on LSP attach",
 })
