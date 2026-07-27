@@ -1,5 +1,4 @@
-local M = {
-	src = "https://github.com/akinsho/bufferline.nvim",
+---@type vim.pack.Spec[]
+return {
+	{ src = "https://github.com/akinsho/bufferline.nvim" },
 }
-
-return M

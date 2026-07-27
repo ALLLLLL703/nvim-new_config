@@ -1,4 +1,4 @@
-local wk = Safe_Require("which-key")
+local wk = require("which-key")
 wk.setup({
 	preset = "classic",
 	---@type wk.Win.opts

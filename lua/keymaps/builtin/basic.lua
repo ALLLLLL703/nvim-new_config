@@ -58,13 +58,6 @@ map("n", "<leader>uh", ":nohlsearch<CR>", { desc = "Clear Highlight Search", sil
 
 -- 复制文件路径到系统剪贴板
 map("n", "<leader>fP", ":let @+ = expand('%:p')<CR>", { desc = "Copy Full Path", silent = true })
-vim.keymap.set(
-	"n",
-	"<leader>fp",
-	":lua Safe_Require'telescope'.extensions.projects.projects{}<CR>",
-	{ desc = "find projects" }
-)
-
 map("n", "<leader>fd", ":let @+ = expand('%:p:h')<CR>", { desc = "Copy Directory Path" })
 map("n", "<A-j>", ":m .+1<CR>==", { silent = true })
 map("n", "<A-k>", ":m .-2<CR>==", { silent = true })

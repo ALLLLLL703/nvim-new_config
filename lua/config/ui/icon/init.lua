@@ -1,1 +1,1 @@
-Safe_Require("config.ui.icon.real-icon1")
+require("config.ui.icon.real-icon1")

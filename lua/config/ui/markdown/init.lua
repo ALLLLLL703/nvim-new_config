@@ -1,1 +1,1 @@
-Safe_Require("config.ui.markdown.mk")
+require("config.ui.markdown.mk")

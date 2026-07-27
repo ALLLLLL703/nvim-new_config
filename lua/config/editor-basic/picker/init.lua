@@ -1,1 +1,1 @@
-Safe_Require("config.editor-basic.picker.snacks2")
+require("config.editor-basic.picker.snacks2")

@@ -1,4 +1,5 @@
-local M = {
+---@type vim.pack.Spec[]
+return {
 	{
 		src = "https://github.com/mrcjkb/rustaceanvim",
 		-- To avoid being surprised by breaking changes,
@@ -10,4 +11,3 @@ local M = {
 		src = "https://github.com/saecki/crates.nvim",
 	},
 }
-return M

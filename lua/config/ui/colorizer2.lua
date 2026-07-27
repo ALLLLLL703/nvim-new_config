@@ -1,3 +1,3 @@
-Safe_Require("colorizer").setup({
+require("colorizer").setup({
 	"*",
 })

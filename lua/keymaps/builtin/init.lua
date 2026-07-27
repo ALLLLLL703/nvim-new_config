@@ -1,1 +1,1 @@
-Safe_Require("keymaps.builtin.basic")
+require("keymaps.builtin.basic")

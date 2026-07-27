@@ -1,3 +1,2 @@
-local M = { { src = "https://github.com/neovim/nvim-lspconfig" } }
-
-return M
+---@type vim.pack.Spec[]
+return { { src = "https://github.com/neovim/nvim-lspconfig" } }

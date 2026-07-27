@@ -1,4 +1,5 @@
-Safe_Require("config.builtin.autopairs")
-Safe_Require("config.builtin.options")
+require("config.builtin.autopairs")
+require("config.builtin.options")
+require("config.builtin.pack")
 vim.cmd("source ~/.config/nvim/lua/config/builtin/runtimepath.vim")
 vim.cmd("set exrc")

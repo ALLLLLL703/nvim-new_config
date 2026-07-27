@@ -1,4 +1,4 @@
-local conform = Safe_Require("conform")
+local conform = require("conform")
 if not conform then
 	return {}
 end

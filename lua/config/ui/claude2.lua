@@ -1,1 +1,1 @@
-Safe_Require("claudecode").setup()
+require("claudecode").setup()

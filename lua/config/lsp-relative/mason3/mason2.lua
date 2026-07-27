@@ -1,1 +1,1 @@
-Safe_Require("mason.init").setup({})
+require("mason.init").setup({})

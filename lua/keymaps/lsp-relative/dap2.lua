@@ -1,4 +1,4 @@
-local whichkey = Safe_Require("which-key")
+local whichkey = require("which-key")
 local keymap = {
 	d = {
 		name = "DAP",

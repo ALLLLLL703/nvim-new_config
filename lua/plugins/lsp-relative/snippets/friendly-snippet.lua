@@ -1,5 +1,4 @@
-local M = {
-	src = "https://github.com/rafamadriz/friendly-snippets",
+---@type vim.pack.Spec[]
+return {
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
 }
-
-return M

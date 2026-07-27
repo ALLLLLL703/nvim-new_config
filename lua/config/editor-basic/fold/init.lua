@@ -1,1 +1,1 @@
-Safe_Require("config.editor-basic.fold.treesitter")
+require("config.editor-basic.fold.treesitter")

@@ -1,1 +1,1 @@
-Safe_Require("config.builtin.options.opt1")
+require("config.builtin.options.opt1")

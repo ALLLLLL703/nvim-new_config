@@ -1,13 +1,13 @@
----@param Arglead string
----@param Cmdline string
----@param CursurPos number
+---@param arg_lead string
+---@param cmd_line string
+---@param cursor_pos integer
 ---@return string[]
-local function complete_plugins_list(Arglead, Cmdline, CursurPos)
+local function complete_plugins_list(arg_lead, cmd_line, cursor_pos)
 	local plugins = vim.pack.get()
 	local names = {}
-	for _, p in ipairs(plugins) do
-		local name = p.spec.name
-		if name:lower():find(Arglead:lower(), 1, true) then
+	for _, plugin in ipairs(plugins) do
+		local name = plugin.spec.name
+		if name:lower():find(arg_lead:lower(), 1, true) then
 			table.insert(names, name)
 		end
 	end
@@ -36,5 +36,5 @@ vim.api.nvim_create_user_command("PackStatus", function(args)
 end, {
 	nargs = "*",
 	complete = complete_plugins_list,
-	desc = "checking plugin status without pull new:)",
+	desc = "Check plugin status without fetching updates",
 })

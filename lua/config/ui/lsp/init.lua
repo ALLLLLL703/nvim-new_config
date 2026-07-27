@@ -1,1 +1,1 @@
-Safe_Require("config.ui.lsp.lspsaga1")
+require("config.ui.lsp.lspsaga1")

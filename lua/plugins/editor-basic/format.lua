@@ -1,2 +1,4 @@
-local M = {src= 'https://github.com/stevearc/conform.nvim'}
-return M
+---@type vim.pack.Spec[]
+return {
+	{ src = "https://github.com/stevearc/conform.nvim" },
+}

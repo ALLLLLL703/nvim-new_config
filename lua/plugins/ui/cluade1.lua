@@ -1,2 +1,2 @@
-local M = { { src = "https://github.com/coder/claudecode.nvim" } }
-return M
+---@type vim.pack.Spec[]
+return { { src = "https://github.com/coder/claudecode.nvim" } }

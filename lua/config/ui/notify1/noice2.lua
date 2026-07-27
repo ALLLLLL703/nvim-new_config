@@ -1,5 +1,5 @@
 ---@diagnostic disable: missing-fields
-Safe_Require("noice").setup(
+require("noice").setup(
 	---@type  NoiceConfig
 
 	{
@@ -65,7 +65,7 @@ Safe_Require("noice").setup(
 	}
 )
 
-Safe_Require("notify").setup({
+require("notify").setup({
 	max_width = 60,
 	max_height = 10,
 	top_down = false,

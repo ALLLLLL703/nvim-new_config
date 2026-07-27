@@ -1,0 +1,21 @@
+---@type vim.pack.Spec[]
+return {
+	{ src = "https://github.com/saghen/blink.cmp" },
+	{ src = "https://github.com/saghen/blink.lib" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{ src = "https://github.com/zaldih/themery.nvim" },
+	{ src = "https://github.com/catppuccin/nvim" },
+	{ src = "https://github.com/folke/lazydev.nvim" },
+	{ src = "https://github.com/mikavilpas/yazi.nvim" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	{ src = "https://github.com/folke/tokyonight.nvim" },
+	{ src = "https://github.com/rebelot/kanagawa.nvim" },
+	{ src = "https://github.com/ellisonleao/gruvbox.nvim" },
+	{ src = "https://github.com/olimorris/onedarkpro.nvim" },
+	{ src = "https://github.com/EdenEast/nightfox.nvim.git" },
+	{ src = "https://github.com/marko-cerovac/material.nvim.git" },
+	{ src = "https://github.com/windwp/nvim-autopairs" },
+	{ src = "https://github.com/kylechui/nvim-surround" },
+	{ src = "https://github.com/oribarilan/lensline.nvim" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+}

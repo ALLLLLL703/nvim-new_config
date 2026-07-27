@@ -1,1 +1,1 @@
-Safe_Require("config.ui.highlight.treesitter-config")
+require("config.ui.highlight.treesitter-config")

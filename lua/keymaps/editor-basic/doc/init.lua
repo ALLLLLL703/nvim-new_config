@@ -1,1 +1,1 @@
-Safe_Require("keymaps.editor-basic.doc.neogen1")
+require("keymaps.editor-basic.doc.neogen1")

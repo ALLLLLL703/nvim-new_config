@@ -1,6 +1,4 @@
 ---@type vim.pack.Spec[]
-local M = {
+return {
 	{ src = "https://github.com/mitander/flume.nvim" },
 }
-
-return M

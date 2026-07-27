@@ -1,1 +1,1 @@
-Safe_Require("config.lsp-relative.fold.ufo1")
+require("config.lsp-relative.fold.ufo1")

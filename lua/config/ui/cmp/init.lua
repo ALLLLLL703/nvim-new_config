@@ -1,2 +1,2 @@
-Safe_Require("config.ui.cmp.colorful-menu2")
-Safe_Require("config.ui.cmp.lspkind3")
+require("config.ui.cmp.colorful-menu2")
+require("config.ui.cmp.lspkind3")

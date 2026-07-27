@@ -1,4 +1,4 @@
-local bufferline = Safe_Require("bufferline")
+local bufferline = require("bufferline")
 ---@type bufferline.UserConfig
 local opts = {
 	options = {
@@ -14,4 +14,4 @@ local opts = {
 	},
 }
 
-Safe_Require("bufferline").setup(opts)
+require("bufferline").setup(opts)

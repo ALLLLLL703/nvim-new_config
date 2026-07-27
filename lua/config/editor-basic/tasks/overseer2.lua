@@ -1,4 +1,4 @@
-Safe_Require("overseer").setup({
+require("overseer").setup({
 
 	dap = true,
 	component_aliases = {

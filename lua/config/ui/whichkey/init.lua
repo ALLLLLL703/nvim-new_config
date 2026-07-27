@@ -1,1 +1,1 @@
-Safe_Require("config.ui.whichkey.wk1")
+require("config.ui.whichkey.wk1")

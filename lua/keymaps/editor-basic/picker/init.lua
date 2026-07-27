@@ -1,1 +1,1 @@
-Safe_Require("keymaps.editor-basic.picker.snacks3")
+require("keymaps.editor-basic.picker.snacks3")

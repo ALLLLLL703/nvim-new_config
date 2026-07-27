@@ -1,4 +1,5 @@
-local M = {
+---@type vim.pack.Spec[]
+return {
 	{
 		src = "https://github.com/nvim-neo-tree/neo-tree.nvim",
 		version = vim.version.range("3"),
@@ -7,4 +8,3 @@ local M = {
 		src = "https://github.com/MunifTanjim/nui.nvim",
 	},
 }
-return M

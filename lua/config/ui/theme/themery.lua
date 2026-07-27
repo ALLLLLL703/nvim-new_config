@@ -1,4 +1,4 @@
-Safe_Require("themery").setup({
+require("themery").setup({
 	-- add the config here
 	themes = {
 		"onedark_vivid",

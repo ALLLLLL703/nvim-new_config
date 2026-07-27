@@ -1,4 +1,4 @@
-Safe_Require("lensline").setup({
+require("lensline").setup({
 
 	profiles = {
 		{

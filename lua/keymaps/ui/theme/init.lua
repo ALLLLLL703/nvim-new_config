@@ -1,1 +1,1 @@
-Safe_Require("keymaps.ui.theme.themery1")
+require("keymaps.ui.theme.themery1")

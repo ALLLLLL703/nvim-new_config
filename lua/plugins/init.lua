@@ -1,69 +1,52 @@
-vim.pack.add({
-	"https://github.com/saghen/blink.cmp",
-	"https://github.com/saghen/blink.lib",
+local plugin_modules = {
+	"plugins.base",
+	"plugins.ui.bufferline-plugins",
+	"plugins.ui.whichkey",
+	"plugins.editor-basic.format",
+	"plugins.lsp-relative.snippets.Luasnip",
+	"plugins.lsp-relative.snippets.friendly-snippet",
+	"plugins.ui.lspsaga3",
+	"plugins.editor-basic.snacks1",
+	"plugins.ui.icon",
+	"plugins.editor-basic.neotree1",
+	"plugins.ui.dap1",
+	"plugins.lsp-relative.mason1",
+	"plugins.ui.opacity1",
+	"plugins.lsp-relative.schemas.schemasstore1",
+	"plugins.ui.noice1",
+	"plugins.lsp-relative.jdtls",
+	-- "plugins.lsp-relative.coc",
+	"plugins.lsp-relative.ufo1",
+	"plugins.ui.image1",
+	"plugins.ui.markdown",
+	"plugins.ui.alpha1",
+	"plugins.lsp-relative.rust1",
+	"plugins.ui.rainbow-delimiters1",
+	"plugins.editor-basic.ai",
+	"plugins.ui.lualine1",
+	"plugins.lsp-relative.omnisharp1",
+	"plugins.lsp-relative.lspconfig1",
+	"plugins.editor-basic.telescope1",
+	"plugins.editor-basic.oil1",
+	"plugins.ui.undo",
+	"plugins.ui.colorful-menu1",
+	"plugins.lsp-relative.csharp2",
+	"plugins.ui.cluade1",
+	-- "plugins.minecraft-dev1",
+	"plugins.editor-basic.comment1",
+	"plugins.editor-basic.textobject1",
+	"plugins.editor-basic.http1",
+	"plugins.editor-basic.refact1",
+	"plugins.ui.colorizer1",
+	"plugins.editor-basic.tasks1",
+	"plugins.ui.discord1",
+	"plugins.editor-basic.remote",
+	"plugins.editor-basic.doc1",
+	"plugins.lsp-relative.lint1",
+	"plugins.lsp-relative.kotlin1",
+	"plugins.ui.theme1",
+}
 
-	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/zaldih/themery.nvim",
-	"https://github.com/catppuccin/nvim",
-	"https://github.com/folke/lazydev.nvim",
-	"https://github.com/mikavilpas/yazi.nvim",
-	"https://github.com/nvim-lua/plenary.nvim",
-	"https://github.com/folke/tokyonight.nvim",
-	"https://github.com/rebelot/kanagawa.nvim",
-	"https://github.com/ellisonleao/gruvbox.nvim",
-	"https://github.com/olimorris/onedarkpro.nvim",
-	"https://github.com/EdenEast/nightfox.nvim.git",
-	"https://github.com/marko-cerovac/material.nvim.git",
-	"https://github.com/windwp/nvim-autopairs",
-	"https://github.com/kylechui/nvim-surround",
-	Safe_Require("plugins.ui.bufferline-plugins"),
-	Safe_Require("plugins.ui.whichkey"),
-	Safe_Require("plugins.editor-basic.format"),
-	Safe_Require("plugins.lsp-relative.snippets.Luasnip"),
-	Safe_Require("plugins.lsp-relative.snippets.friendly-snippet"),
-	Safe_Require("plugins.ui.lspsaga3"),
-	Safe_Require("plugins.editor-basic.snacks1"),
-	"https://github.com/oribarilan/lensline.nvim",
-	"https://github.com/lewis6991/gitsigns.nvim",
-})
-vim.pack.add(Safe_Require("plugins.ui.icon"))
-vim.pack.add(Safe_Require("plugins.editor-basic.neotree1"))
-vim.pack.add(Safe_Require("plugins.ui.dap1"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.mason1"))
-vim.pack.add(Safe_Require("plugins.ui.opacity1"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.schemas.schemasstore1"))
-vim.pack.add(Safe_Require("plugins.ui.noice1"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.jdtls"))
--- vim.pack.add(Safe_Require("plugins.lsp-relative.coc"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.ufo1"))
-vim.pack.add(Safe_Require("plugins.ui.image1"))
-vim.pack.add(Safe_Require("plugins.ui.markdown"))
-vim.pack.add(Safe_Require("plugins.ui.alpha1"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.rust1"))
-vim.pack.add(Safe_Require("plugins.ui.rainbow-delimiters1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.ai"))
-vim.pack.add(Safe_Require("plugins.ui.lualine1"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.omnisharp1"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.lspconfig1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.telescope1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.telescope1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.oil1"))
-vim.pack.add(Safe_Require("plugins.ui.undo"))
-vim.pack.add(Safe_Require("plugins.ui.colorful-menu1"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.csharp2"))
-vim.pack.add(Safe_Require("plugins.ui.cluade1"))
-
--- vim.pack.add(Safe_Require("plugins.minecraft-dev1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.comment1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.textobject1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.http1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.refact1"))
-vim.pack.add(Safe_Require("plugins.ui.colorizer1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.tasks1"))
-vim.pack.add(Safe_Require("plugins.ui.discord1"))
-vim.pack.add(Safe_Require("plugins.editor-basic.remote"))
-vim.pack.add(Safe_Require("plugins.editor-basic.doc1"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.lint1"))
-vim.pack.add(Safe_Require("plugins.lsp-relative.kotlin1"))
-vim.pack.add(Safe_Require("plugins.ui.theme1"))
-Safe_Require("plugins.util")
+for _, module in ipairs(plugin_modules) do
+	vim.pack.add(require(module))
+end

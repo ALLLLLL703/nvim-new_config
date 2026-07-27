@@ -1,1 +1,1 @@
-Safe_Require("keymaps.ui.diagnostic.basic")
+require("keymaps.ui.diagnostic.basic")

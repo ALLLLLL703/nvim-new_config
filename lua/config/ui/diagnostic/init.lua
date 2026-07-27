@@ -1,4 +1,4 @@
-Safe_Require("config.ui.diagnostic.basic")
+require("config.ui.diagnostic.basic")
 
 local signs = {
 

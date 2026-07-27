@@ -5,4 +5,4 @@ local opts = {
 	keymaps = { cycle_open_buffers = false },
 	-- config_home = "/home/sanae/.config/yazi/nvim/",
 }
-Safe_Require("yazi").setup(opts)
+require("yazi").setup(opts)

@@ -1,1 +1,1 @@
-Safe_Require("config.editor-basic.doc2.neogen2")
+require("config.editor-basic.doc2.neogen2")

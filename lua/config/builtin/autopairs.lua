@@ -1,1 +1,1 @@
-Safe_Require("nvim-surround").setup()
+require("nvim-surround").setup()

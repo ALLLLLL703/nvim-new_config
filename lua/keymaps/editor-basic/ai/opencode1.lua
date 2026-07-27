@@ -1,3 +1,3 @@
-local opencode = Safe_Require("opencode")
+local opencode = require("opencode")
 local opt = {}
 opencode.setup(opt)

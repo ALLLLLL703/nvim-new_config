@@ -1,7 +1,7 @@
-local mason_dap = Safe_Require("mason-nvim-dap")
-local dap = Safe_Require("dap")
-local ui = Safe_Require("dapui")
-local dap_virtual_text = Safe_Require("nvim-dap-virtual-text")
+local mason_dap = require("mason-nvim-dap")
+local dap = require("dap")
+local ui = require("dapui")
+local dap_virtual_text = require("nvim-dap-virtual-text")
 
 -- Dap Virtual Text
 dap_virtual_text.setup({})

@@ -17,4 +17,4 @@ local opts = {
 	statuscolumn = { enabled = true },
 	words = { enabled = true },
 }
-Safe_Require("snacks").setup(opts)
+require("snacks").setup(opts)

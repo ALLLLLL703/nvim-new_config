@@ -1,1 +1,1 @@
-Safe_Require("config.ui.greeting.alpha2")
+require("config.ui.greeting.alpha2")

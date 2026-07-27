@@ -22,4 +22,4 @@ local opts = {
 		},
 	},
 }
-Safe_Require("minuet").setup(opts)
+require("minuet").setup(opts)

@@ -1,1 +1,1 @@
-Safe_Require("config.editor-basic.buffer.bufferline-config")
+require("config.editor-basic.buffer.bufferline-config")

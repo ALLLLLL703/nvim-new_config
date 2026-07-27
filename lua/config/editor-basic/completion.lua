@@ -1,4 +1,4 @@
-Safe_Require("blink.cmp").setup(
+require("blink.cmp").setup(
 
 	---@type blink.cmp.Config
 	{

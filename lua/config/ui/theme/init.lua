@@ -1,1 +1,1 @@
-Safe_Require("config.ui.theme.themery")
+require("config.ui.theme.themery")

@@ -1,4 +1,4 @@
-local oil = Safe_Require("oil")
+local oil = require("oil")
 
 ---@type oil.SetupOpts
 local M = {

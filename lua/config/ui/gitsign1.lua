@@ -48,4 +48,4 @@ local opt = {
 		col = 1,
 	},
 }
-Safe_Require("gitsigns").setup(opt)
+require("gitsigns").setup(opt)

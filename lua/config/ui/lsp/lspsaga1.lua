@@ -9,8 +9,8 @@ local M = {
 	},
 }
 
-Safe_Require("lspsaga").setup(M)
-local saga_hover = Safe_Require("lspsaga.hover")
+require("lspsaga").setup(M)
+local saga_hover = require("lspsaga.hover")
 
 if saga_hover then
 	local original_open_link = saga_hover.open_link

@@ -1,5 +1,5 @@
-local lspconfig = Safe_Require("lspconfig")
-local blink = Safe_Require("blink.cmp")
+local lspconfig = require("lspconfig")
+local blink = require("blink.cmp")
 ---@type vim.lsp.Config
 return {
 

@@ -1,1 +1,1 @@
-Safe_Require("keymaps.editor-basic.tab.tab1")
+require("keymaps.editor-basic.tab.tab1")

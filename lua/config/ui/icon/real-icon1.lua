@@ -1,1 +1,1 @@
-Safe_Require("real-icons")
+require("real-icons")

@@ -1,4 +1,5 @@
-local M = {
+---@type vim.pack.Spec[]
+return {
 	{ src = "https://github.com/yetone/avante.nvim" },
 	{ src = "https://github.com/echasnovski/mini.pick" },
 	{ src = "https://github.com/zbirenbaum/copilot.lua" },
@@ -8,5 +9,3 @@ local M = {
 	{ src = "https://github.com/sudo-tee/opencode.nvim" },
 	--[[ 	{ src = "https://github.com/opilotlsp-nvim/copilot-lsp" }, ]]
 }
-
-return M

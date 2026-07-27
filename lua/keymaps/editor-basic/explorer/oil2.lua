@@ -1,3 +1,3 @@
 vim.keymap.set("n", "-", function()
-	Safe_Require("oil").open()
+	require("oil").open()
 end, { desc = "toggle oil" })

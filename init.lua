@@ -1,9 +1,9 @@
 ---@param module string
 ---@return unknown
-function Safe_Require(module)
+local function safe_require(module)
 	local success, result = pcall(require, module)
 	if not success then
-		vim.notify("failed to load module " .. module .. "because of " .. result, vim.log.levels.ERROR)
+		vim.notify("Failed to load module " .. module .. ": " .. result, vim.log.levels.ERROR)
 		return nil
 	end
 	return result
@@ -12,6 +12,6 @@ if vim.g.vscode then
 	return
 end
 
-Safe_Require("plugins")
-Safe_Require("config")
-Safe_Require("keymaps")
+safe_require("plugins")
+safe_require("config")
+safe_require("keymaps")

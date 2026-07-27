@@ -1,1 +1,1 @@
-Safe_Require("config.editor-basic.tasks.overseer2")
+require("config.editor-basic.tasks.overseer2")

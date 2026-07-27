@@ -1,4 +1,4 @@
-local kotlin = Safe_Require("kotlin")
+local kotlin = require("kotlin")
 
 local opts = {
 	-- Optional: Specify root markers for multi-module projects
