@@ -24,3 +24,17 @@
   temporary runtime path and cannot load external build backends later.
 - Keep installation and network work out of the normal startup path.
 - Verify rest.nvim commands load without missing-dependency notifications.
+
+## Codex Spark Completion
+
+- Keep Blink CMP and Minuet as the completion frontend; do not add another AI chat UI.
+- Add a focused Minuet backend that communicates with the official Codex app-server over
+  its JSONL protocol and uses the dedicated `stdpath("cache")/codex-completion` login.
+- Start one asynchronous app-server process per Neovim instance, replace the general agent
+  instructions with a concise completion prompt, and cancel stale turns before new requests.
+- Keep Spark manual-only behind the existing `<A-y>` mapping because plan usage and latency
+  make automatic requests inappropriate.
+- Adapt only the small JSONL request/response shape demonstrated by `pxwg/coact.nvim`; do
+  not import its chat, patch-review, state, or rendering architecture.
+- Verify protocol initialization, completion extraction, cancellation, process errors, and
+  full Neovim startup with a fake app-server, then exercise one real Spark completion.

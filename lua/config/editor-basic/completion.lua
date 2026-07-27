@@ -130,7 +130,7 @@ cmp.setup(
 					async = true,
 					-- Should match minuet.config.request_timeout * 1000,
 					-- since minuet.config.request_timeout is in seconds
-					timeout_ms = 3000,
+					timeout_ms = 30000,
 					score_offset = 50, -- Gives minuet higher priority among suggestions
 				},
 			},

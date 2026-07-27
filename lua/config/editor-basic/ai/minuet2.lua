@@ -1,8 +1,17 @@
 local opts = {
-
-	provider = "openai",
+	provider = "codex",
+	request_timeout = 30,
 	provider_options = {
-
+		codex = {
+			name = "Codex Spark",
+			command = { "codex", "app-server", "--listen", "stdio://" },
+			home = vim.fn.stdpath("cache") .. "/codex-completion",
+			model = "gpt-5.3-codex-spark",
+			reasoning_effort = "low",
+			timeout_ms = 30000,
+			system = require("minuet.config").default_system_prefix_first,
+			chat_input = require("minuet.config").default_chat_input_prefix_first,
+		},
 		openai = {
 			model = "gpt-5.4",
 			end_point = "https://e-flowcode.cc/v1/chat/completions",
