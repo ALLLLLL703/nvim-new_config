@@ -12,6 +12,7 @@
 ---   specified as compile_commands.json, see https://clangd.llvm.org/installation#compile_commandsjson
 
 -- https://clangd.llvm.org/extensions.html#switch-between-sourceheader
+---@param bufnr integer
 local function switch_source_header(bufnr)
 	local method_name = "textDocument/switchSourceHeader"
 	local client = vim.lsp.get_clients({ bufnr = bufnr, name = "clangd" })[1]
@@ -62,6 +63,7 @@ end
 ---@class ClangdInitializeResult: lsp.InitializeResult
 ---@field offsetEncoding? string
 
+---@type vim.lsp.Config
 return {
 	cmd = { "clangd" },
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },

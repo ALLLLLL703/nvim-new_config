@@ -1,4 +1,4 @@
-local M = {
+local lspsaga_opts = {
 	lightbulb = {
 		enable = true,
 		virtual_text = true,
@@ -9,14 +9,14 @@ local M = {
 	},
 }
 
-require("lspsaga").setup(M)
+require("lspsaga").setup(lspsaga_opts)
 local saga_hover = require("lspsaga.hover")
 
 if saga_hover then
 	local original_open_link = saga_hover.open_link
-	---@return string
 	-- 备份原有的 open_link 函数
 
+	---@return string?
 	local function extract_jdt_uri_at_cursor()
 		local row, col = unpack(vim.api.nvim_win_get_cursor(0))
 		local line = vim.api.nvim_get_current_line()

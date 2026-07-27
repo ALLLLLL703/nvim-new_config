@@ -1,5 +1,5 @@
 ---@type neotree.Config
-local M = {
+local neo_tree_opts = {
 	window = {
 		mappings = {
 			["P"] = {
@@ -20,9 +20,9 @@ local function on_move(data)
 	Snacks.rename.on_rename_file(data.source, data.destination)
 end
 local events = require("neo-tree.events")
-M.event_handlers = M.event_handlers or {}
-vim.list_extend(M.event_handlers, {
+neo_tree_opts.event_handlers = neo_tree_opts.event_handlers or {}
+vim.list_extend(neo_tree_opts.event_handlers, {
 	{ event = events.FILE_MOVED, handler = on_move },
 	{ event = events.FILE_RENAMED, handler = on_move },
 })
-require("neo-tree").setup(M)
+require("neo-tree").setup(neo_tree_opts)

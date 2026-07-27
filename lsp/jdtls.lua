@@ -1,5 +1,7 @@
 local lombok_path = "/home/sanae/.m2/repository/org/projectlombok/lombok/1.18.34/lombok-1.18.34.jar"
 local jdtls_launcher = vim.fn.glob("/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
+
+---@type vim.lsp.Config
 return {
 
 	cmd = {

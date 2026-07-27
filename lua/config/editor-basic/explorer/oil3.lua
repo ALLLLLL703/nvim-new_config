@@ -1,7 +1,7 @@
 local oil = require("oil")
 
 ---@type oil.SetupOpts
-local M = {
+local oil_opts = {
 
 	default_file_explorer = true,
 
@@ -23,4 +23,4 @@ local M = {
 	},
 }
 
-oil.setup(M)
+oil.setup(oil_opts)

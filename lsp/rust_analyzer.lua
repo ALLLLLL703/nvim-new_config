@@ -21,6 +21,7 @@
 --- Note: do not set `init_options` for this LS config, it will be automatically populated by the contents of settings["rust-analyzer"] per
 --- https://github.com/rust-lang/rust-analyzer/blob/eb5da56d839ae0a9e9f50774fa3eb78eb0964550/docs/dev/lsp-extensions.md?plain=1#L26.
 
+---@param bufnr integer
 local function reload_workspace(bufnr)
 	local clients = vim.lsp.get_clients({ bufnr = bufnr, name = "rust_analyzer" })
 	for _, client in ipairs(clients) do
@@ -34,6 +35,8 @@ local function reload_workspace(bufnr)
 	end
 end
 
+---@param fname string
+---@return string?
 local function is_library(fname)
 	local user_home = vim.fs.normalize(vim.env.HOME)
 	local cargo_home = os.getenv("CARGO_HOME") or user_home .. "/.cargo"
@@ -51,6 +54,7 @@ local function is_library(fname)
 	end
 end
 
+---@type vim.lsp.Config
 return {
 	cmd = { "/home/sanae/.local/share/nvim/mason/bin/rust-analyzer" },
 	filetypes = { "rs", "rust" },

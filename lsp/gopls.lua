@@ -20,16 +20,14 @@
 ---   })
 --- ```
 
---- @class go_dir_custom_args
----
---- @field envvar_id string
----
---- @field custom_subdir string?
+---@class GoDirCustomArgs
+---@field envvar_id string
+---@field custom_subdir string?
 
 local mod_cache = nil
 local std_lib = nil
 
----@param custom_args go_dir_custom_args
+---@param custom_args GoDirCustomArgs
 ---@param on_complete fun(dir: string | nil)
 local function identify_go_dir(custom_args, on_complete)
 	local cmd = { "go", "env", custom_args.envvar_id }

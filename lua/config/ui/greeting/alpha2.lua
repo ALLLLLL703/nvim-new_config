@@ -16,7 +16,7 @@ dashboard.section.header.val = {
 
 dashboard.section.buttons.val = {
 	dashboard.button("f", "📁 Find file", ":lua Snacks.picker.smart()<cr>"),
-	dashboard.button("p", "󰘐 Project", ":lua Snacks.picker.projects()<cr>)"),
+	dashboard.button("p", "󰘐 Project", ":lua Snacks.picker.projects()<cr>"),
 	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
 	dashboard.button("r", "↺  Recently used files", ":lua Snacks.picker.recent()<cr>"),
 	dashboard.button("t", "󱘣  Find text", ":lua Snacks.picker.grep()<cr>"),
@@ -26,23 +26,24 @@ dashboard.section.buttons.val = {
 	dashboard.button("h", "󱪙 help doc", ":lua Snacks.picker.help()<cr>"),
 }
 
-local function footer()
-	local str = os.capture("fortune", true)
-	return str
+local function load_footer()
+	vim.system({ "fortune" }, { text = true }, function(result)
+		vim.schedule(function()
+			if result.code ~= 0 then
+				vim.notify(
+					"Failed to load dashboard footer: " .. (result.stderr or "unknown error"),
+					vim.log.levels.WARN
+				)
+				return
+			end
+
+			dashboard.section.footer.val = vim.trim(result.stdout or "")
+			alpha.redraw()
+		end)
+	end)
 end
-function os.capture(cmd, raw)
-	local f = assert(io.popen(cmd, "r"))
-	local s = assert(f:read("*a"))
-	f:close()
-	if raw then
-		return s
-	end
-	s = string.gsub(s, "^%s+", "")
-	s = string.gsub(s, "%s+$", "")
-	s = string.gsub(s, "[\n\r]+", " ")
-	return s
-end
-dashboard.section.footer.val = footer()
+
+dashboard.section.footer.val = ""
 
 dashboard.section.footer.opts.hl = "Type"
 dashboard.section.header.opts.hl = "Include"
@@ -50,3 +51,4 @@ dashboard.section.buttons.opts.hl = "Keyword"
 
 dashboard.opts.opts.noautocmd = true
 alpha.setup(dashboard.opts)
+load_footer()
