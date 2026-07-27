@@ -50,9 +50,11 @@ return {
 				arguments = { vim.uri_from_bufnr(bufnr) },
 			})
 		end, {
-			desc = "Organize Imports",
+			desc = "Organize imports",
 		})
-		vim.api.nvim_buf_create_user_command(bufnr, "LspPyrightSetPythonPath", set_python_path, {
+		vim.api.nvim_buf_create_user_command(bufnr, "LspPyrightSetPythonPath", function(args)
+			set_python_path(args.args)
+		end, {
 			desc = "Reconfigure pyright with the provided python path",
 			nargs = 1,
 			complete = "file",
