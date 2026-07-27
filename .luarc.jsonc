@@ -27,6 +27,7 @@
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/claudecode.nvim/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/lensline.nvim/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/gitsigns.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-lspconfig/lua/",
 			"${3rd}/luassert/library"
 		],
 		"ignoreDir": [
@@ -44,5 +45,6 @@
 			"Safe_Require": "require"
 		},
 		"pathStrict": true
-	}
+	},
+    "completion.autoRequire": false
 }

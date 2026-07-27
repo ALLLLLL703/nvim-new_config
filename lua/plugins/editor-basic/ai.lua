@@ -4,6 +4,9 @@ local M = {
 	{ src = "https://github.com/zbirenbaum/copilot.lua" },
 	{ src = "https://github.com/hakonharnes/img-clip.nvim" },
 	{ src = "https://github.com/johnseth97/codex.nvim" },
+	{ src = "https://github.com/milanglacier/minuet-ai.nvim" },
+	{ src = "https://github.com/sudo-tee/opencode.nvim" },
+	--[[ 	{ src = "https://github.com/opilotlsp-nvim/copilot-lsp" }, ]]
 }
 
 return M

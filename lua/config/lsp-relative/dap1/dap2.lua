@@ -16,12 +16,20 @@ mason_dap.setup({
 	},
 })
 
-dap.adapters.codelldb = {
-	type = "executable",
-	command = vim.fn.expand("~/.local/share/nvim/mason/bin/codelldb"), -- adjust as needed, must be absolute path
-	name = "codelldb",
+dap.adapters.codelldb_server = {
+	type = "server",
+	port = "${port}",
+	command = vim.fn.expand("~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb"), -- adjust as needed, must be absolute path
+	args = { "--port", "${port}" },
+	name = "codelldb_server",
 }
 
+dap.adapters.codelldb = {
+	type = "executable",
+	command = vim.fn.expand("~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb"), -- adjust as needed, must be absolute path
+	args = {},
+	name = "codelldb",
+}
 dap.adapters.cpptool = {
 	type = "executable",
 	command = vim.fn.stdpath("data") .. "/mason/bin/OpenDebugAD7",
@@ -29,6 +37,11 @@ dap.adapters.cpptool = {
 	options = {
 		detached = false,
 	},
+}
+
+dap.adapters.kotlin = {
+	type = "executable",
+	command = vim.fn.expand("~/.local/share/nvim/mason/bin/kotlin-debug-adapter"),
 }
 
 -- Configurations
@@ -82,7 +95,7 @@ dap.configurations = {
 	rust = {
 		{
 			name = "Launch",
-			type = "cpptool",
+			type = "codelldb",
 			request = "launch",
 			program = function()
 				return vim.fn.input("Path to executable", vim.fn.getcwd() .. "/", "file")
@@ -104,13 +117,25 @@ dap.configurations = {
 	-- 		port = 5005,
 	-- 	},
 	-- },
+	--
 }
 
 -- Dap UI
 
 ui.setup()
 
-vim.fn.sign_define("DapBreakpoint", { text = "🐞" })
+vim.api.nvim_set_hl(0, "DapBreakpoint", {
+	bold = true,
+	fg = "#008000",
+})
+vim.api.nvim_set_hl(0, "DapConditionalBreakpoint", {
+	bold = true,
+	fg = "#00ffff",
+})
+vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint" })
+vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapConditionalBreakpoint" })
+vim.fn.sign_define("DapStopped", { text = "🛑" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "󰇪" })
 
 dap.listeners.before.attach.dapui_config = function()
 	ui.open()
@@ -125,4 +150,6 @@ dap.listeners.before.event_exited.dapui_config = function()
 	ui.close()
 end
 
-require("dap.ext.vscode").load_launchjs()
+require("dap.ext.vscode").load_launchjs(nil, {
+	codelldb = { "rust" },
+})

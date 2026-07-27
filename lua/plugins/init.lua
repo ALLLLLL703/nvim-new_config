@@ -1,6 +1,7 @@
 vim.pack.add({
 	"https://github.com/saghen/blink.cmp",
 	"https://github.com/saghen/blink.lib",
+
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/zaldih/themery.nvim",
 	"https://github.com/catppuccin/nvim",
@@ -18,7 +19,6 @@ vim.pack.add({
 	Safe_Require("plugins.ui.bufferline-plugins"),
 	Safe_Require("plugins.ui.whichkey"),
 	Safe_Require("plugins.editor-basic.format"),
-	Safe_Require("plugins.ui.icon"),
 	Safe_Require("plugins.lsp-relative.snippets.Luasnip"),
 	Safe_Require("plugins.lsp-relative.snippets.friendly-snippet"),
 	Safe_Require("plugins.ui.lspsaga3"),
@@ -26,6 +26,7 @@ vim.pack.add({
 	"https://github.com/oribarilan/lensline.nvim",
 	"https://github.com/lewis6991/gitsigns.nvim",
 })
+vim.pack.add(Safe_Require("plugins.ui.icon"))
 vim.pack.add(Safe_Require("plugins.editor-basic.neotree1"))
 vim.pack.add(Safe_Require("plugins.ui.dap1"))
 vim.pack.add(Safe_Require("plugins.lsp-relative.mason1"))
@@ -51,10 +52,18 @@ vim.pack.add(Safe_Require("plugins.ui.undo"))
 vim.pack.add(Safe_Require("plugins.ui.colorful-menu1"))
 vim.pack.add(Safe_Require("plugins.lsp-relative.csharp2"))
 vim.pack.add(Safe_Require("plugins.ui.cluade1"))
+
 -- vim.pack.add(Safe_Require("plugins.minecraft-dev1"))
 vim.pack.add(Safe_Require("plugins.editor-basic.comment1"))
 vim.pack.add(Safe_Require("plugins.editor-basic.textobject1"))
 vim.pack.add(Safe_Require("plugins.editor-basic.http1"))
 vim.pack.add(Safe_Require("plugins.editor-basic.refact1"))
 vim.pack.add(Safe_Require("plugins.ui.colorizer1"))
+vim.pack.add(Safe_Require("plugins.editor-basic.tasks1"))
+vim.pack.add(Safe_Require("plugins.ui.discord1"))
+vim.pack.add(Safe_Require("plugins.editor-basic.remote"))
+vim.pack.add(Safe_Require("plugins.editor-basic.doc1"))
+vim.pack.add(Safe_Require("plugins.lsp-relative.lint1"))
+vim.pack.add(Safe_Require("plugins.lsp-relative.kotlin1"))
+vim.pack.add(Safe_Require("plugins.ui.theme1"))
 Safe_Require("plugins.util")

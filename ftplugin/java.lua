@@ -6,10 +6,16 @@ local function attach()
 	local java_debug_path = mason_path .. "/packages/java-debug-adapter"
 	local java_test_path = mason_path .. "/packages/java-test"
 
-	local root_dir =
-		jdtls.setup.find_root({ "mvnw", "gradlew", ".git", "pom.xml", "settings.gradle", "settings.gradle.kts" })
+	local root_dir = jdtls.setup.find_root({
+		"mvnw",
+		"gradlew",
+		".git",
+		"pom.xml",
+		"settings.gradle",
+		"settings.gradle.kts",
+		-- "build.gradle",
+	})
 	local project_name = vim.fn.fnamemodify(root_dir, ":t")
-
 	if root_dir == nil then
 		return
 	end
@@ -45,11 +51,16 @@ local function attach()
 			"/home/sanae/.local/share/jdtls/workspace" .. workspace_dir,
 		},
 		root_dir = root_dir,
+		---@type lspconfig.settings.jdtls
 		settings = {
 			java = {
 				eclipse = { downloadSources = true },
 				maven = { downloadSources = true },
-				gradle = { downloadSources = true },
+
+				gradle = { downloadSources = true, wrapper = {
+					enabled = true,
+				} },
+
 				configuration = {
 					updateBuildConfiguration = "interactive",
 				},

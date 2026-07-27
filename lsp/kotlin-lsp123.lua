@@ -11,7 +11,14 @@
 ---@type vim.lsp.Config
 return {
 	filetypes = { "kotlin" },
-	cmd = { "kotlin-lsp", "--stdio" },
+	cmd = {
+		"/home/sanae/.local/share/zed/extensions/work/kotlin/kotlin-lsp-262.7569.0/kotlin-server-262.7569.0/bin/intellij-server",
+		"--stdio",
+	},
+	cmd_env = {
+		JAVA_HOME = "/usr/lib/jvm/java-21-openjdk",
+		-- PATH = "/usr/lib/jvm/java-21-openjdk/bin:" .. (vim.env.PATH or ""),
+	},
 	root_markers = {
 		"settings.gradle", -- Gradle (multi-project)
 		"settings.gradle.kts", -- Gradle (multi-project)

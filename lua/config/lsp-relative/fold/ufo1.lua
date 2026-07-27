@@ -11,8 +11,9 @@ require("ufo").setup({
 	end,
 	close_fold_kinds_for_ft = {
 		default = { "imports", "comment" },
-		java = { "imports", "comment" },
+		java = { "import_declaration", "comment" },
 		json = { "array" },
+		rust = { "use_declaration" },
 	},
 	close_fold_current_line_for_ft = {
 		default = true,

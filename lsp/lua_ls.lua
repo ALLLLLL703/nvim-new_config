@@ -77,6 +77,7 @@ return {
 		".stylua.toml",
 		".git",
 	},
+	---@type lspconfig.settings.lua_ls
 	settings = {
 		Lua = {
 			runtime = {

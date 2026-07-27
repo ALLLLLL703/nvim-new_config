@@ -83,6 +83,7 @@ Safe_Require("blink.cmp").setup(
 					cmp.accept({ index = 10 })
 				end,
 			},
+			["<A-y>"] = require("minuet").make_blink_map(),
 		},
 		---@type blink.cmp.CompletionConfigPartial
 		completion = {
@@ -112,6 +113,23 @@ Safe_Require("blink.cmp").setup(
 							end,
 						},
 					},
+				},
+			},
+		},
+		sources = {
+			-- Enable minuet for autocomplete
+			default = { "lsp", "path", "buffer", "snippets" },
+			-- For manual completion only, remove 'minuet' from default
+			providers = {
+				---@type blink.cmp.SourceProviderConfigPartial
+				minuet = {
+					name = "minuet",
+					module = "minuet.blink",
+					async = true,
+					-- Should match minuet.config.request_timeout * 1000,
+					-- since minuet.config.request_timeout is in seconds
+					timeout_ms = 3000,
+					score_offset = 50, -- Gives minuet higher priority among suggestions
 				},
 			},
 		},

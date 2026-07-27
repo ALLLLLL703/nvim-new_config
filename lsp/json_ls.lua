@@ -21,17 +21,26 @@
 --- })
 --- ```
 
+---
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 ---@type vim.lsp.Config
 return {
 	cmd = { "vscode-json-language-server", "--stdio" },
 	filetypes = { "json", "jsonc" },
+	capabilities = capabilities,
 	init_options = {
 		provideFormatter = true,
 	},
+
+	---@type lspconfig.settings.jsonls
 	settings = {
 		json = {
 			schemas = require("schemastore").json.schemas(),
 			validate = { enable = true },
+			colorDecorators = { enable = true },
+			format = { enable = true },
+			schemaDownload = { enable = true },
 		},
 	},
 	root_markers = { ".git" },

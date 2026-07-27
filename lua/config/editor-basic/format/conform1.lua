@@ -10,6 +10,8 @@ conform.setup({
 		cs = { "csharpier" },
 		cpp = { "clang-format" },
 		c = { "clang-format" },
+		python = { "black" },
+		kotlin = { "ktfmt" },
 	},
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
