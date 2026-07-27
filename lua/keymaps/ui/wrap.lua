@@ -8,4 +8,4 @@ map("n", "<leader>tw", function()
 		vim.cmd("set wrap")
 		vim.notify("Wrap enable")
 	end
-end, { desc = "toggle wrap" })
+end, { desc = "Toggle line wrapping" })

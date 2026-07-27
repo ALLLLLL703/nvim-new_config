@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<c-t>n", "<cmd>tabnext<cr>", { desc = "next tab" })
-vim.keymap.set("n", "<c-t>p", "<cmd>tabprevious<cr>", { desc = "prev tab" })
-vim.keymap.set("n", "<c-t>t", "<cmd>tabnew<cr>", { desc = "new tab" })
-vim.keymap.set("n", "<c-t>d", "<cmd>tabclose<cr>", { desc = "close tab" })
+vim.keymap.set("n", "<c-t>n", "<cmd>tabnext<cr>", { desc = "Go to next tab", silent = true })
+vim.keymap.set("n", "<c-t>p", "<cmd>tabprevious<cr>", { desc = "Go to previous tab", silent = true })
+vim.keymap.set("n", "<c-t>t", "<cmd>tabnew<cr>", { desc = "Create tab", silent = true })
+vim.keymap.set("n", "<c-t>d", "<cmd>tabclose<cr>", { desc = "Close tab", silent = true })
