@@ -35,7 +35,6 @@ local plugin_modules = {
 	-- "plugins.minecraft-dev1",
 	"plugins.editor-basic.comment1",
 	"plugins.editor-basic.textobject1",
-	"plugins.editor-basic.http1",
 	"plugins.editor-basic.refact1",
 	"plugins.ui.colorizer1",
 	"plugins.editor-basic.tasks1",

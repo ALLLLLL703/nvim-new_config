@@ -18,6 +18,7 @@
 ## git
 - 每过一个阶段的实现后都要提交代码
 - 每次提交完成后都要使用github mcp进行一个推送
+- 每次应用配置修改后都必须验证 Neovim 仍可正常交互启动，禁止留下错误循环、hit-enter 阻塞或无法进入编辑界面的启动路径
 
 ## code style
 - 查看[style.md](./agent-instructions/STYLE.md)
@@ -30,4 +31,3 @@
 ## question规则
 - 一切提问走question工具
 - 如果有任何需要细化决策树或这需要决策的地方就调用question工具
-

@@ -14,3 +14,13 @@
   library for the current plugin revision is already available.
 - Verify the native library loads through the full configuration and the V2 warning
   is absent on subsequent startups.
+
+## rest.nvim Dependencies
+
+- Let rocks.nvim own rest.nvim and its rockspec dependencies; do not register the
+  same plugin with `vim.pack`.
+- Configure the rocks Lua, C, and runtime paths before loading `vim.pack` plugins.
+- Use Arch's stable `/usr/bin/luarocks`; the bootstrap-generated wrapper embeds a
+  temporary runtime path and cannot load external build backends later.
+- Keep installation and network work out of the normal startup path.
+- Verify rest.nvim commands load without missing-dependency notifications.

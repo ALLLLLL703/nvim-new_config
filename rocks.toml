@@ -1,0 +1,5 @@
+[rocks]
+
+[plugins]
+"rocks.nvim" = "2.49.0"
+"rest.nvim" = "3.13.0"

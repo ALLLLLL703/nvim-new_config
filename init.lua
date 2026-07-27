@@ -12,6 +12,7 @@ if vim.g.vscode then
 	return
 end
 
+safe_require("config.rocks")
 safe_require("plugins")
 safe_require("config")
 safe_require("keymaps")
