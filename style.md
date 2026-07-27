@@ -6,3 +6,11 @@
 - Verify a parser-backed buffer starts highlighting, unsupported plugin buffers remain quiet,
   and repeated `FileType` events do not create duplicate highlighters or buffers.
 - Run StyLua and both isolated and full-config headless startup checks.
+
+## Blink CMP V2 Build
+
+- Follow Blink CMP's documented `vim.pack` installation path.
+- Build the native matcher before `setup()`; the upstream task is a no-op when the
+  library for the current plugin revision is already available.
+- Verify the native library loads through the full configuration and the V2 warning
+  is absent on subsequent startups.

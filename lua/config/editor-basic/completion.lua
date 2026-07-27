@@ -1,5 +1,7 @@
-require("blink.cmp").setup(
+local cmp = require("blink.cmp")
+cmp.build():pwait()
 
+cmp.setup(
 	---@type blink.cmp.Config
 	{
 		cmdline = {
