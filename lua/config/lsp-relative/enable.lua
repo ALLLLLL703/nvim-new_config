@@ -14,7 +14,7 @@ vim.lsp.enable("pyrefly")
 vim.lsp.enable("clangd")
 vim.lsp.enable("yaml")
 -- vim.lsp.enable("kotlin-lsp")
---[[ vim.lsp.enable("kotlin-language-server") ]]
+-- vim.lsp.enable("kotlin-language-server")
 vim.lsp.enable("gopls")
 vim.lsp.enable("tsgo")
 vim.lsp.enable("spy")

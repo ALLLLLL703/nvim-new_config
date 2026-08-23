@@ -12,6 +12,7 @@ conform.setup({
 		c = { "clang-format" },
 		python = { "black" },
 		kotlin = { "ktfmt" },
+		-- cmake = { "cmake-format", "--in-place" },
 	},
 })
 

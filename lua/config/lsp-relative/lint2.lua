@@ -1,5 +1,6 @@
 require("lint").linters_by_ft = {
 	python = { "pyrefly", "pylint" },
+	cmake = { "cmake-lint" },
 }
 
 local group = vim.api.nvim_create_augroup("config.lint", { clear = true })

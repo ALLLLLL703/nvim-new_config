@@ -260,3 +260,5 @@ syntax check alone is insufficient for plugin wiring or editor interactions.
 - Do non-obvious contracts have precise LuaLS annotations?
 - Does potentially blocking work stay off Neovim's main loop?
 - Was the real changed scenario executed successfully?
+
+

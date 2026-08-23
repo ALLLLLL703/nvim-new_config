@@ -1,3 +1,7 @@
+if vim.g.vscode then
+	return
+end
+
 require("config.lsp-relative.jdtls.attach2").attach({ gradle_wrapper = true })
 
 -- 注册 jdt:// 协议处理器
