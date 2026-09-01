@@ -19,6 +19,6 @@ vim.lsp.enable("gopls")
 vim.lsp.enable("tsgo")
 vim.lsp.enable("spy")
 -- vim.lsp.enable("groovy")
---[[ vim.lsp.enable("gradle-lsp") ]]
+vim.lsp.enable("gradle-lsp")
 --
 --[[ vim.lsp.enable("sourcekit") ]]

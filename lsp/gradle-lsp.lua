@@ -1,9 +1,8 @@
-local lspconfig = require("lspconfig")
 local blink = require("blink.cmp")
+
 ---@type vim.lsp.Config
 return {
-
-	cmd = { "/home/sanae/.local/bin/gradle-lsp" },
+	cmd = { "/home/sanae/.local/bin/gradle-lsp", "--stdio", "--log-level=warn" },
 	filetypes = { "groovy", "kotlin" },
 	capabilities = blink and blink.get_lsp_capabilities() or vim.lsp.protocol.make_client_capabilities(),
 	root_dir = function(bufnr, on_dir)
@@ -14,14 +13,10 @@ return {
 		end
 		local root = vim.fs.root(name, {
 			"settings.gradle",
-			"build.gradle",
-			"build.gradle.kts",
 			"settings.gradle.kts",
 			"gradlew",
 			".git",
-		})
-		if root then
-			on_dir(root)
-		end
+		}) or vim.fs.dirname(name)
+		on_dir(root)
 	end,
 }
