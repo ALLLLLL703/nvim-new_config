@@ -1,5 +1,7 @@
 local blink = require("blink.cmp")
 
+require("config.lsp-relative.gradle_lsp_external").setup()
+
 ---@type vim.lsp.Config
 return {
 	cmd = { "gradle-lsp", "--stdio" },
