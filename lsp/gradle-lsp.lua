@@ -2,13 +2,13 @@ local blink = require("blink.cmp")
 
 ---@type vim.lsp.Config
 return {
-	cmd = { "/home/sanae/.local/bin/gradle-lsp", "--stdio", "--log-level=warn" },
-	filetypes = { "groovy", "kotlin" },
+	cmd = { "gradle-lsp", "--stdio" },
+	filetypes = { "kotlin" },
 	capabilities = blink and blink.get_lsp_capabilities() or vim.lsp.protocol.make_client_capabilities(),
 	root_dir = function(bufnr, on_dir)
 		local name = vim.api.nvim_buf_get_name(bufnr)
 		local basename = vim.fs.basename(name)
-		if not basename:match("%.gradle$") and not basename:match("%.gradle%.kts$") then
+		if not basename:match("%.gradle%.kts$") then
 			return
 		end
 		local root = vim.fs.root(name, {
