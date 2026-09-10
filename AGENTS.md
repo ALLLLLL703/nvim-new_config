@@ -6,7 +6,9 @@
 
 ### 常开启skill
 - grill-me
-- maintainable-code
+
+### 仅用户明确指定时启用
+- maintainable-code：禁止根据任务类型或默认技能列表自动调用；只有用户明确要求本次任务使用时才启用。
 
 ## mcp
 - context7和open-websearch随便用,只要能解决问题即可

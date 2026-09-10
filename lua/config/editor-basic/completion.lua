@@ -119,10 +119,17 @@ cmp.setup(
 			},
 		},
 		sources = {
-			-- Enable minuet for autocomplete
-			default = { "lsp", "path", "buffer", "snippets" },
-			-- For manual completion only, remove 'minuet' from default
+			default = { "lsp", "path", "buffer", "snippets", "ai_comp" },
+			-- Keep Minuet manual-only; Spark participates in automatic completion.
 			providers = {
+				ai_comp = {
+					name = "AI",
+					module = "ai_comp.blink",
+					async = true,
+					timeout_ms = 16000,
+					min_keyword_length = 0,
+					score_offset = 100,
+				},
 				---@type blink.cmp.SourceProviderConfigPartial
 				minuet = {
 					name = "minuet",
