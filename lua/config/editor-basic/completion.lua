@@ -89,6 +89,8 @@ cmp.setup(
 		},
 		---@type blink.cmp.CompletionConfigPartial
 		completion = {
+			-- AI continuations are useful after whitespace, not only within keywords.
+			trigger = { show_on_blocked_trigger_characters = { "\t" } },
 			documentation = { auto_show = true },
 			list = { selection = { preselect = false, auto_insert = true } },
 			menu = {
@@ -99,7 +101,7 @@ cmp.setup(
 				draw = {
 					-- We don't need label_description now because label and label_description are already
 					-- combined together in label by colorful-menu.nvim.
-					columns = { { "kind_icon" }, { "label", gap = 1 } },
+					columns = { { "kind_icon" }, { "label", gap = 1 }, { "source_name" } },
 					components = {
 						label = {
 							text = function(ctx)
