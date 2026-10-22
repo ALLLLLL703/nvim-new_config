@@ -28,3 +28,9 @@ dap.adapters.kotlin = {
 	type = "executable",
 	command = vim.fn.expand("~/.local/share/nvim/mason/bin/kotlin-debug-adapter"),
 }
+
+dap.adapters.csharp = {
+	type = "executable",
+	command = vim.fn.exepath("netcoredbg"),
+	args = { "--interpreter=vscode" },
+}

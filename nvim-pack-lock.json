@@ -44,6 +44,10 @@
       "rev": "2390c6e45c4789072c293ac69de051d169668b29",
       "src": "https://github.com/coder/claudecode.nvim"
     },
+    "codesnap.nvim": {
+      "rev": "fccc5c7a2a10ad04da83d0263d50dde7f6da2430",
+      "src": "https://github.com/mistricky/codesnap.nvim"
+    },
     "codex.nvim": {
       "rev": "e1149cbc875ff71ee21f8832b9fe815a270442b3",
       "src": "https://github.com/johnseth97/codex.nvim"
@@ -204,6 +208,11 @@
     "nvim-material-icon": {
       "rev": "5e75c5e631cba8f0001f189af9d0d9beb5276501",
       "src": "https://github.com/DaikyXendo/nvim-material-icon"
+    },
+    "nvim-mcp": {
+      "rev": "003d700bb6f5695648453b3a6ebf6d969b2def0c",
+      "src": "https://github.com/linw1995/nvim-mcp",
+      "version": "'v0.7.2'"
     },
     "nvim-nio": {
       "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",

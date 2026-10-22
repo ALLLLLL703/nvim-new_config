@@ -101,7 +101,8 @@ cmp.setup(
 				draw = {
 					-- We don't need label_description now because label and label_description are already
 					-- combined together in label by colorful-menu.nvim.
-					columns = { { "kind_icon" }, { "label", gap = 1 }, { "source_name" } },
+					columns = { { "kind_icon" }, { "label", gap = 1 } },
+
 					components = {
 						label = {
 							text = function(ctx)
@@ -121,17 +122,17 @@ cmp.setup(
 			},
 		},
 		sources = {
-			default = { "lsp", "path", "buffer", "snippets", "ai_comp" },
+			default = { "lsp", "path", "buffer", "snippets" },
 			-- Keep Minuet manual-only; Spark participates in automatic completion.
 			providers = {
-				ai_comp = {
-					name = "AI",
-					module = "ai_comp.blink",
-					async = true,
-					timeout_ms = 16000,
-					min_keyword_length = 0,
-					score_offset = 100,
-				},
+				-- ai_comp = {
+				-- 	name = "AI",
+				-- 	module = "ai_comp.blink",
+				-- 	async = true,
+				-- 	timeout_ms = 16000,
+				-- 	min_keyword_length = 0,
+				-- 	score_offset = 100,
+				-- },
 				---@type blink.cmp.SourceProviderConfigPartial
 				minuet = {
 					name = "minuet",

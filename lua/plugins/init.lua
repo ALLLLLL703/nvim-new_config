@@ -41,9 +41,11 @@ local plugin_modules = {
 	"plugins.ui.discord1",
 	"plugins.editor-basic.remote",
 	"plugins.editor-basic.doc1",
+	"plugins.editor-basic.nvim-mcp1",
 	"plugins.lsp-relative.lint1",
 	"plugins.lsp-relative.kotlin1",
 	"plugins.ui.theme1",
+	"plugins.ui.snap",
 }
 
 for _, module in ipairs(plugin_modules) do
