@@ -8,7 +8,7 @@ vim.lsp.enable("bash")
 -- vim.lsp.enable("pyrefly")
 -- vim.lsp.enable("roslyn_ls")
 -- vim.lsp.enable("gradle")
--- vim.lsp.enable("gradle-analyzer")
+vim.lsp.enable("gradle-analyzer")
 
 vim.lsp.enable("clangd")
 vim.lsp.enable("yaml")
@@ -18,7 +18,7 @@ vim.lsp.enable("gopls")
 vim.lsp.enable("tsc")
 -- vim.lsp.enable("spy")
 -- vim.lsp.enable("groovy")
-vim.lsp.enable("gradle-lsp")
+-- vim.lsp.enable("gradle-lsp")
 --
 --[[ vim.lsp.enable("sourcekit") ]]
 --

@@ -1,25 +1,23 @@
-local lspconfig = require("lspconfig")
 local blink = require("blink.cmp")
+
 ---@type vim.lsp.Config
 return {
-
-	cmd = { "/home/sanae/CodeProject/rust/gradle-analyzer/target/debug/gradle-analyzer" },
-	filetypes = { "groovy", "kotlin" },
-	capabilities = blink and blink.get_lsp_capabilities() or vim.lsp.protocol.make_client_capabilities(),
+	cmd = { "gradle-analyzer", "lsp" },
+	filetypes = { "kotlin", "groovy" },
+	capabilities = blink.get_lsp_capabilities(),
 	root_dir = function(bufnr, on_dir)
 		local name = vim.api.nvim_buf_get_name(bufnr)
-		local basename = vim.fs.basename(name)
-		if not basename:match("%.gradle$") and not basename:match("%.gradle%.kts$") then
+		if name == "" then
 			return
 		end
 		local root = vim.fs.root(name, {
 			"settings.gradle",
+			"settings.gradle.kts",
 			"build.gradle",
 			"build.gradle.kts",
-			"settings.gradle.kts",
 			"gradlew",
 			".git",
-		})
+		}) or vim.fs.dirname(name)
 		if root then
 			on_dir(root)
 		end
