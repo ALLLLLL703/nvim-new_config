@@ -34,3 +34,14 @@ dap.adapters.csharp = {
 	command = vim.fn.exepath("netcoredbg"),
 	args = { "--interpreter=vscode" },
 }
+
+-- mason 的 js-debug-adapter shim 自己 exec node .../dapDebugServer.js "$@"
+dap.adapters["pwa-node"] = {
+	type = "server",
+	host = "127.0.0.1",
+	port = "${port}",
+	executable = {
+		command = vim.fn.expand("~/.local/share/nvim/mason/bin/js-debug-adapter"),
+		args = { "${port}" },
+	},
+}

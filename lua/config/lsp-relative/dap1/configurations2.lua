@@ -63,6 +63,28 @@ dap.configurations = {
 			end,
 		},
 	},
+	javascript = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "JS: Launch current file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+			console = "integratedTerminal",
+			skipFiles = { "<node_internals>/**" },
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "JS: Attach node :9229",
+			host = "127.0.0.1",
+			port = 9229,
+			restart = true,
+			sourceMaps = false,
+			skipFiles = { "<node_internals>/**" },
+		},
+	},
+
 	-- java = {
 	-- 	{
 	-- 		type = "java",
@@ -74,3 +96,5 @@ dap.configurations = {
 	-- },
 	--
 }
+
+dap.configurations.typescript = dap.configurations.javascript
