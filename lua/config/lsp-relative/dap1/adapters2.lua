@@ -42,6 +42,6 @@ dap.adapters["pwa-node"] = {
 	port = "${port}",
 	executable = {
 		command = vim.fn.expand("~/.local/share/nvim/mason/bin/js-debug-adapter"),
-		args = { "${port}" },
+		args = { "${port}", "127.0.0.1" },
 	},
 }
