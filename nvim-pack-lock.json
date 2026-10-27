@@ -136,6 +136,10 @@
       "rev": "92f7366a9315cd386bc4fa4d716fde375dda210f",
       "src": "https://github.com/marko-cerovac/material.nvim.git"
     },
+    "mcphub.nvim": {
+      "rev": "7cd5db330f41b7bae02b2d6202218a061c3ebc1f",
+      "src": "https://github.com/ravitemer/mcphub.nvim"
+    },
     "minecraft-dev.nvim": {
       "rev": "44477d143920d0ff6579601c43a932e26c6abead",
       "src": "file:///home/sanae/CodeProject/luaPro/nvim-plug/minecraft-dev.nvim"

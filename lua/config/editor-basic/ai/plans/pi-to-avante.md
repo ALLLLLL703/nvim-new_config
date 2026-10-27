@@ -93,17 +93,21 @@ require("mcphub").setup({
 3. `lua/config/editor-basic/ai/` 下按**职责子文件夹**拆分。
 4. 密钥**从 pi 的 `auth.json` 读**。
 5. opencode 那一套快捷键**只删快捷键**，插件 spec 保留。
+6. **不接 codex**，provider 只留 DeepSeek。
+7. MCP 服务器**全部接**（含 `lsp`、`computer-use`），只是默认 disabled，由模型按需 `toggle`。
+8. 工具调用**全部自动批准**（`auto_approve_tool_permissions = true`）。
+9. mcphub 内置的 `neovim` server **不特殊处理**（保留其全部工具，接受与 avante 内置文件工具重名）。
+10. `mcp-hub` 二进制用**全局 npm** 安装。
 
-### 待定（实施前需要再确认）
+### 已作废（因第 6 条：不接 codex）
 
-| 编号 | 问题 | 影响 |
+| 编号 | 原问题 | 结论 |
 |---|---|---|
-| Q1 | `nvim` 这个 MCP 要不要接进 avante？ | avante 跑在 nvim 内部，`nvim-mcp` 再连自身有 RPC 递归/死锁风险；建议不接或只连独立实例 |
-| Q2 | `openai-codex` 是 OAuth（`access`+`refresh`+`expires`），avante 只认静态 `api_key` | 需要写刷新钩子，否则 token 过期后必然 401 |
-| Q3 | `e-flowcode` 网关密钥不在 `auth.json` | `credentials.lua` 需保留 env 回退 |
-| Q4 | e-flowcode 中转的 claude/gpt 是否真支持 tool calling | 不支持就必须 `disable_tools = true`，agentic 模式失效 |
-| Q5 | `auto_approve_tool_permissions` 默认开还是关 | 关=每次工具调用都要确认，开=直接改文件 |
-| Q6 | 是否要 ACP provider（`codex-acp` / `claude-agent-acp`） | 当前机器只有 `codex` CLI，两个 acp 二进制都没装 |
+| Q2 | `openai-codex` 是 OAuth，avante 只认静态 `api_key` | 作废，不接 codex。 |
+| Q4 | e-flowcode 中转是否支持 tool calling | 作废，不接 e-flowcode。 |
+| Q6 | 是否要 ACP provider | 暂缓（P4），当前机器两个 acp 二进制都没装。 |
+
+`Q3`（`e-flowcode` 密钥不在 `auth.json`）随 Q4 一并作废；`credentials.lua` 仍保留 env 优先逻辑，作为临时覆盖手段。
 
 ## 6. 目标目录结构（阶段 P1 起生效）
 
@@ -118,11 +122,12 @@ lua/config/editor-basic/ai/
 └── avante/
     ├── init.lua              # 组装 opts → require("avante").setup
     ├── credentials.lua       # ~/.pi/agent/auth.json + env 回退
-    ├── providers.lua         # claude / openai / deepseek-compat 定义
-    ├── prompts.lua           # system_prompt：全局 AGENTS.md + mcphub 服务器清单
-    ├── tools.lua             # custom_tools / disabled_tools / auto_approve
-    └── mcp.lua               # mcphub setup + avante 扩展接线
+    ├── providers.lua         # DeepSeek provider 定义
+    ├── prompts.lua           # system_prompt：全局 AGENTS.md + MCP 服务器清单
+    └── mcp.lua               # mcp.json → servers.json 投影 + mcphub setup + custom_tools
 ```
+
+`tools.lua` 不单独成文件：`auto_approve_tool_permissions` 是一行配置，`custom_tools` 只有 mcphub 一个来源，拆出去只会增加间接层（STYLE.md 第 5 节）。
 
 - `lua/config/editor-basic/ai/ai1.lua` 的 `opts` 全部迁进 `avante/`，`ai1.lua` 删除。
 - 快捷键按仓库现有约定留在 `lua/keymaps/editor-basic/ai/avante.lua`（不要塞进 config 目录）。
@@ -130,14 +135,14 @@ lua/config/editor-basic/ai/
 
 ## 7. 分阶段实施
 
-| 阶段 | 内容 | 验收 |
+| 阶段 | 内容 | 状态 |
 |---|---|---|
-| P0（已完成） | 评估文档 + 删除 opencode 快捷键 | `nvim` 正常启动；`Space a o/s/S/n/m/M` 全部 unmapped；`Space a x` 仍可用 |
-| P1 | 拆 `avante/`，行为与现状等价 | `:AvanteAsk` 与现在表现一致；`:AvanteSwitchProvider` 可切 claude/openai |
-| P2 | 规则与提示词对齐 | 项目根 `AGENTS.md` 仍自动生效；全局 `AGENTS.md` 进 system prompt；无重复注入 |
-| P3 | mcphub 接入 | `:AvanteAsk` 能列出 MCP 工具；`disable_tools`/`disabled_tools` 去重无冲突；`nvim` server 按 Q1 结论处理 |
-| P4（可选） | ACP provider | 装 `codex-acp`，`Space a m`/`Space a M` 能切 ACP 模式与模型 |
-| P5（不建议） | 自研 skills 加载器 / compaction 增强 | 工作量远超"配置复刻"，单独立项 |
+| P0 | 评估文档 + 删除 opencode 快捷键 | 已完成（提交 `ff2d861`） |
+| P1 | 拆 `avante/`，行为与现状等价 | 已完成：`avante/{init,credentials,providers}.lua`，provider 只剩 DeepSeek |
+| P2 | 规则与提示词对齐 | 已完成：`avante/prompts.lua` |
+| P3 | mcphub 接入 | 已完成：`avante/mcp.lua` |
+| P4（可选） | ACP provider | 未做 |
+| P5（不建议） | 自研 skills 加载器 / compaction 增强 | 未做 |
 
 ## 8. 风险与坑
 
@@ -149,9 +154,67 @@ lua/config/editor-basic/ai/
 6. **规则冲突**：avante 自动读项目根 `AGENTS.md`，若同时把同一份内容塞进 `system_prompt` 会重复，浪费 token。
 7. **`custom_tools` 与 `disabled_tools` 的 provider 作用域**：`disable_tools` 是 provider 级（`lua/avante/config.lua:1234-1243` 有显式报错），别写到顶层。
 
-## 9. 本轮已落地的改动
+## 9. P1–P3 实现说明
+
+### 9.1 数据流
+
+```
+~/.config/mcp/mcp.json  (mcpServers, pi 唯一真源)
+        │  avante/mcp.lua: M.sync_servers()
+        ▼
+~/.config/mcphub/servers.json  (mcp-hub 的配置，连接字段由生成器覆盖)
+        │  rcitemer/mcphub.nvim 启动 mcp-hub --watch
+        ▼
+mcp-hub 进程 ──▶ hub:get_active_servers_prompt(true, true) ──▶ system_prompt
+```
+
+- 装 mcp-hub 必须带 `--prefix`（系统 npm prefix `/usr` 是 root 所有）：
+
+```sh
+npm install -g --prefix ~/.local mcp-hub@latest
+```
+
+### 9.2 字段投影
+
+| pi (`mcp.json`) | MCPHub (`servers.json`) |
+|---|---|
+| `command` / `args` / `cwd` / `env` | 同名保留 |
+| `type: "http"` + `url` + `headers` | `type: "http"` + `url` + `headers` |
+| `bearerTokenEnv: "GITHUB_PAT_TOKEN"` | `headers.Authorization = "Bearer ${GITHUB_PAT_TOKEN}"` |
+| `lifecycle` / `requestTimeoutMs` / `startup_timeout_sec` / `tools` / `auth` | 丢弃（MCPHub 只有全局 `mcp_request_timeout`，工具策略交给 `auto_approve`） |
+
+- 新 server 默认 `disabled = true`；已有文件里的 `disabled` / `autoApprove` / `disabled_tools` / `disabled_resources` / `custom_instructions` **全部保留**，否则每次重启会把模型开过的 server 关回去。
+- 只有 `vim.deep_equal` 判定内容真变了才写文件；无条件重写会每启动一次就触发一次 hub reload。
+- 空表不能直接传给 `vim.json.encode`（`{}` 会被编成 `[]`），所以可选的 `args` / `env` / `headers` 为空时整字段省略。
+
+### 9.3 提示词
+
+- 必须 `hub:get_active_servers_prompt(true, true)`：第二个参数是 `include_disabled`（`lua/mcphub/hub.lua:1577-1583`），不传就只会列出已连接的两个 native server，模型永远不知道该 `toggle` 谁。
+- 全局规则来自 `~/.pi/agent/AGENTS.md`，按 mtime 缓存；avante 已自己读项目根 `AGENTS.md`，两者不同源，不会重复。
+- `mcp_request_timeout = 180000` 是全局值，按最慢的 `lsp` server 取值。
+
+### 9.4 实测记录
+
+- `nvim --headless` 完整加载，`mode=n`，无报错。
+- `servers.json` 生成 10 个 server（jd / dotnet / computer-use / cratesio / lsp / context7 / github / node_repl / open-websearch / codegraph），全部 `disabled: true`。
+- 调用 `toggle_mcp_server{server_name="codegraph", action="start"}` → `codegraph:connected`，其余保持 `disabled`，且 hub 把 `disabled: false` 写回 `servers.json`（重启后仍生效）。
+- 二次启动后 `servers.json` 内容不变（不重复写盘）。
+- system prompt 长度 18295 字符，包含 `## Disabled MCP Servers` 段与各 server 描述。
+
+### 9.5 坑
+
+1. **陈旧 hub 被复用**：mcphub 会先按 root + config 找已有 hub（`lua/mcphub/hub.lua:105`）。若旧 hub 启动时 `servers.json` 尚不存在，它不会重新加载，新 nvim 拿到的只有两个 native server。排查：`pgrep -f 'mcp[-]hub --port'`，有残留就 kill 后重开。
+2. **键名**：pi 的 `mcp.json` 用 `mcpServers`，不是 `servers`。
+3. **`servers.json` 不是手改入口**：连接字段（command/url/headers）每次启动会被 `mcp.json` 覆盖，只有 `disabled` 这类运行态字段会被保留。
+4. **重名工具**：内置 `neovim` server 的 `read_file` / `bash` 与 avante 内置工具同名，本轮按决策全部保留，模型可能选错，后续可改用 `disabled_tools` 收敛。
+
+## 10. 本轮已落地的改动
 
 - 删除 `lua/keymaps/editor-basic/ai/opencode1.lua`（只做 `require("opencode").setup({})`，装的是 opencode 默认键位）。
 - `lua/keymaps/editor-basic/ai/init.lua` 去掉对应 `require`。
 - `lua/keymaps/editor-basic/ai/ai2.lua` 删除 6 条 opencode 命令键位：`<leader>ao`、`<leader>as`、`<leader>aS`、`<leader>an`、`<leader>am`、`<leader>aM`。
 - 保留 `<leader>ax`（`CodexToggle`）与历史注释块；`lua/plugins/editor-basic/ai.lua:9` 的 opencode 插件 spec 按约定保留。
+- P1：新增 `avante/{credentials,providers}.lua` 与拆分后的 `avante/init.lua`，provider 只留 DeepSeek（`deepseek-flash`，context 1M / max_tokens 384k，取自 `~/.pi/agent/models-store.json`）。
+- P2：新增 `avante/prompts.lua`，把 `~/.pi/agent/AGENTS.md` 与 MCPHub 服务器清单拼进 `system_prompt`（avante 是追加而非替换，见 `llm.lua:351-360`）。
+- P3：新增 `avante/mcp.lua`（`mcp.json` → `servers.json` 投影 + MCPHub 懒加载 + `custom_tools`）；`lua/plugins/editor-basic/ai.lua` 加 `ravitemer/mcphub.nvim`；`nvim-pack-lock.json` 随之更新（`mcphub.nvim` 是首个用 rev 钉定版本的条目）。
+- `avante/init.lua` 增加 `auto_approve_tool_permissions = true`。
