@@ -1,6 +1,7 @@
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("json_ls")
 vim.lsp.enable("marksman")
+vim.lsp.enable("metals")
 vim.lsp.enable("lemminx")
 -- vim.lsp.enable("neocmake")
 vim.lsp.enable("bash")
