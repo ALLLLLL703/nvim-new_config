@@ -1,2 +1,2 @@
----@type vim.pack.Spec[]
-return { { src = "https://github.com/folke/noice.nvim" }, { src = "https://github.com/rcarriga/nvim-notify" } }
+---@type LazySpec
+return { { url = "https://github.com/folke/noice.nvim" }, { url = "https://github.com/rcarriga/nvim-notify" } }

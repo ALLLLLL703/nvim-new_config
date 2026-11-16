@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/seblyng/roslyn.nvim" },
+	{ url = "https://github.com/seblyng/roslyn.nvim" },
 }

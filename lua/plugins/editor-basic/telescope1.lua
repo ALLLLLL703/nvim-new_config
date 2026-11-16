@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ url = "https://github.com/nvim-telescope/telescope.nvim", cmd = "Telescope" },
 }

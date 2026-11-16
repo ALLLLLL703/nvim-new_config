@@ -1,2 +1,2 @@
----@type vim.pack.Spec[]
-return { { src = "https://github.com/neovim/nvim-lspconfig" } }
+---@type LazySpec
+return { { url = "https://github.com/neovim/nvim-lspconfig", priority = 500 } }

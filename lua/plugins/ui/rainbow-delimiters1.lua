@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/HiPhish/rainbow-delimiters.nvim" },
+	{ url = "https://github.com/HiPhish/rainbow-delimiters.nvim" },
 }

@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/L3MON4D3/LuaSnip" },
+	{ url = "https://github.com/L3MON4D3/LuaSnip" },
 }

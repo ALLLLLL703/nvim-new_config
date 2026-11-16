@@ -1,6 +1,6 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/jay-babu/mason-nvim-dap.nvim" },
-	{ src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+	{ url = "https://github.com/mason-org/mason.nvim" },
+	{ url = "https://github.com/jay-babu/mason-nvim-dap.nvim" },
+	{ url = "https://github.com/mason-org/mason-lspconfig.nvim" },
 }

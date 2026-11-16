@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/numToStr/Comment.nvim" },
+	{ url = "https://github.com/numToStr/Comment.nvim" },
 }

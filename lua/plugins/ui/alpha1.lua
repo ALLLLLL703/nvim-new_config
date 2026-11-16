@@ -1,2 +1,2 @@
----@type vim.pack.Spec[]
-return { { src = "https://github.com/goolord/alpha-nvim" } }
+---@type LazySpec
+return { { url = "https://github.com/goolord/alpha-nvim" } }

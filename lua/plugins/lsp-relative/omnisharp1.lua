@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/Hoffs/omnisharp-extended-lsp.nvim" },
+	{ url = "https://github.com/Hoffs/omnisharp-extended-lsp.nvim" },
 }

@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/b0o/SchemaStore.nvim" },
+	{ url = "https://github.com/b0o/SchemaStore.nvim" },
 }

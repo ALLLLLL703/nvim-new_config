@@ -93,7 +93,7 @@ wait_for(function()
 end, "failure completion timed out")
 assert(failure_result.err and failure_result.err.message == "fake failure", "provider error message was lost")
 
-vim.cmd.packadd("minuet-ai.nvim")
+-- lazy.nvim has no pack directory; requiring the module loads the plugin on demand.
 local minuet_config = require("minuet.config")
 require("minuet").setup({
 	provider = "codex",

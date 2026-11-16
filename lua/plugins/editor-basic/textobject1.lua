@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
+	{ url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 }

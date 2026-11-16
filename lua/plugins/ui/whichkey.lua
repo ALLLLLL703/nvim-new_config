@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/folke/which-key.nvim" },
+	{ url = "https://github.com/folke/which-key.nvim" },
 }

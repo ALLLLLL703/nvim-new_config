@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/mfussenegger/nvim-jdtls.git" },
+	{ url = "https://github.com/mfussenegger/nvim-jdtls.git" },
 }

@@ -1,3 +1,29 @@
+-- lazy.nvim owns plugin installation. The module list and the spec files keep the
+-- same layout they had under vim.pack.
+local lazypath = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy", "lazy.nvim")
+
+if not vim.uv.fs_stat(lazypath) then
+	local clone = vim.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"--branch=stable",
+		"https://github.com/folke/lazy.nvim.git",
+		lazypath,
+	}, { text = true }):wait()
+
+	if clone.code ~= 0 then
+		vim.notify(
+			"Failed to install lazy.nvim: " .. (clone.stderr or "unknown error"),
+			vim.log.levels.ERROR,
+			{ title = "lazy.nvim" }
+		)
+		return
+	end
+end
+
+vim.opt.rtp:prepend(lazypath)
+
 local plugin_modules = {
 	"plugins.base",
 	"plugins.ui.bufferline-plugins",
@@ -48,7 +74,16 @@ local plugin_modules = {
 	"plugins.ui.snap",
 }
 
+local specs = {}
 for _, module in ipairs(plugin_modules) do
-	vim.pack.add(require(module))
+	vim.list_extend(specs, require(module))
 end
+
+require("lazy").setup(specs, {
+	-- Keep the lockfile next to the configuration so it is version controlled with it.
+	lockfile = vim.fs.joinpath(vim.fn.stdpath("config"), "lazy-lock.json"),
+	checker = { enabled = false },
+	change_detection = { notify = false },
+})
+
 require("plugins.native")

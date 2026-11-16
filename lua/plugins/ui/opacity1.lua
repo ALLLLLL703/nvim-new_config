@@ -1,5 +1,5 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/typicode/bg.nvim" },
-	{ src = "https://github.com/xiyaowong/transparent.nvim" },
+	{ url = "https://github.com/typicode/bg.nvim" },
+	{ url = "https://github.com/xiyaowong/transparent.nvim" },
 }

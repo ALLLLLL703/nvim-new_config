@@ -1,5 +1,5 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/kevinhwang91/promise-async" },
-	{ src = "https://github.com/kevinhwang91/nvim-ufo" },
+	{ url = "https://github.com/kevinhwang91/promise-async" },
+	{ url = "https://github.com/kevinhwang91/nvim-ufo" },
 }

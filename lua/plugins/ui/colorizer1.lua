@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/norcalli/nvim-colorizer.lua" },
+	{ url = "https://github.com/norcalli/nvim-colorizer.lua" },
 }

@@ -1,4 +1,4 @@
----@type vim.pack.Spec[]
+---@type LazySpec
 return {
-	{ src = "https://github.com/amitds1997/remote-nvim.nvim" },
+	{ url = "https://github.com/amitds1997/remote-nvim.nvim" },
 }
