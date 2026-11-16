@@ -1,33 +1,44 @@
+-- buffers pick
 vim.keymap.set("n", "<leader>fb", function()
 	Snacks.picker.buffers()
 end, { desc = "Find buffers", silent = true })
+
 vim.keymap.set("n", "<leader>ff", function()
 	Snacks.picker.smart()
 end, { desc = "Find files", silent = true })
+
 vim.keymap.set("n", "<leader>fp", function()
 	Snacks.picker.projects()
 end, { desc = "Find projects", silent = true })
+
 vim.keymap.set("n", "<leader>fr", function()
 	Snacks.picker.recent()
 end, { desc = "Find recent files", silent = true })
+
 vim.keymap.set("n", "<leader>uC", function()
 	Snacks.picker.colorschemes()
 end, { desc = "Select colorscheme", silent = true })
+
 vim.keymap.set("n", "<leader>hh", function()
 	Snacks.picker.help()
 end, { desc = "Search help", silent = true })
+
 vim.keymap.set("n", "<leader>fg", function()
 	Snacks.picker.grep()
 end, { desc = "Grep files", silent = true })
+
 vim.keymap.set("n", "<leader>sM", function()
 	Snacks.picker.man()
 end, { silent = true, desc = "Search man pages" })
+
 vim.keymap.set("n", "<leader>lg", function()
 	Snacks.lazygit()
 end, { silent = true, desc = "Open Lazygit" })
+
 vim.keymap.set("n", "<leader>ssi", function()
 	Snacks.picker.icons()
 end, { desc = "Search icons" })
+
 vim.keymap.set("i", "<C-S-I>", function()
 	Snacks.picker.icons()
 end, { desc = "Search icons" })
@@ -35,9 +46,15 @@ end, { desc = "Search icons" })
 vim.keymap.set("n", "<leader>ssk", function()
 	Snacks.picker.keymaps()
 end, { desc = "Search keymaps" })
+
 vim.keymap.set("n", "<leader>ssh", function()
 	Snacks.picker.highlights()
 end, { desc = "Search highlight groups" })
+
+vim.keymap.set("n", "<leader>ssz", function()
+	Snacks.picker.zoxide()
+end, { silent = true, desc = "Search Zoxide" })
+
 vim.keymap.set({ "n", "t" }, "<c-/>", function()
 	---@type snacks.terminal.Opts
 	local opts = {}

@@ -7,6 +7,7 @@
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/conform.nvim/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/which-key.nvim/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/snacks.nvim/lua/",
+			"/home/sanae/.local/share/nvim/site/pack/core/opt/noice.nvim/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/neo-tree.nvim/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-dap/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-dap-ui/lua/",
@@ -17,14 +18,14 @@
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/bufferline.nvim/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-ufo/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-jdtls/lua/",
-			"/home/sanae/.local/share/nvim/site/pack/core/opt/avante.nvim/lua/",
+			// "/home/sanae/.local/share/nvim/site/pack/core/opt/avante.nvim/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/yazi.nvim/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/omnisharp-extended-lsp.nvim/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/oil.nvim/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/colorful-menu.nvim/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/lspkind.nvim/lua/",
-			"/home/sanae/CodeProject/luaPro/nvim-plug/minecraft-dev.nvim/lua/",
-			"/home/sanae/.local/share/nvim/site/pack/core/opt/claudecode.nvim/lua/",
+			// "/home/sanae/CodeProject/luaPro/nvim-plug/minecraft-dev.nvim/lua/",
+			// "/home/sanae/.local/share/nvim/site/pack/core/opt/claudecode.nvim/lua/",
 			// "/home/sanae/.local/share/nvim/site/pack/core/opt/lensline.nvim/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/gitsigns.nvim/lua/",
 			"/home/sanae/.local/share/nvim/site/pack/core/opt/nvim-lspconfig/lua/",
@@ -37,7 +38,8 @@
 	},
 	"diagnostics.globals": [
 		"local",
-		"str"
+		"str",
+		"safe_require"
 	],
 	"runtime": {
 		"version": "LuaJIT",
@@ -46,5 +48,5 @@
 		},
 		"pathStrict": true
 	},
-    "completion.autoRequire": false
+	"completion.autoRequire": false
 }

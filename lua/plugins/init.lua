@@ -51,3 +51,4 @@ local plugin_modules = {
 for _, module in ipairs(plugin_modules) do
 	vim.pack.add(require(module))
 end
+require("plugins.native")

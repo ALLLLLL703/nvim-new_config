@@ -1,3 +1,9 @@
+local oxide_filter = {
+
+	event = "msg_show",
+	find = "^%s*Client md-oxide quit with exit code 101 and signal 0.%s*",
+}
+
 ---@diagnostic disable: missing-fields
 require("noice").setup(
 	---@type  NoiceConfig
@@ -56,9 +62,13 @@ require("noice").setup(
 			},
 			{
 				filter = {
-					event = "notify",
-					find = "^omnisharp",
+					event = "msg_show",
+					find = "^omnisharp%s*",
 				},
+				opts = { skip = true },
+			},
+			{
+				filter = oxide_filter,
 				opts = { skip = true },
 			},
 		},

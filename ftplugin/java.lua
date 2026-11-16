@@ -2,9 +2,9 @@ if vim.g.vscode then
 	return
 end
 
-require("config.lsp-relative.jdtls.attach2").attach({ gradle_wrapper = true })
-
--- 注册 jdt:// 协议处理器
+-- require("config.lsp-relative.jdtls.attach2").attach({ gradle_wrapper = true })
+-- --
+-- -- 注册 jdt:// 协议处理器
 -- vim.api.nvim_create_autocmd("BufReadCmd", {
 -- 	pattern = "jdt://*",
 -- 	callback = function()
@@ -28,4 +28,4 @@ require("config.lsp-relative.jdtls.attach2").attach({ gradle_wrapper = true })
 -- 		end)
 -- 	end,
 -- })
--- 在你的 jdtls 配置或 init.lua 中
+-- -- 在你的 jdtls 配置或 init.lua 中

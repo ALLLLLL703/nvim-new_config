@@ -10,4 +10,7 @@ return {
 
 		src = "https://github.com/saecki/crates.nvim",
 	},
+	{
+		src = "https://github.com/cordx56/rustowl",
+	},
 }
