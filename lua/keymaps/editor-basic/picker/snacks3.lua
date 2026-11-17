@@ -1,3 +1,5 @@
+require("keymaps.editor-basic.picker.snacks3.custom")
+
 -- buffers pick
 vim.keymap.set("n", "<leader>fb", function()
 	Snacks.picker.buffers()
@@ -14,10 +16,6 @@ end, { desc = "Find projects", silent = true })
 vim.keymap.set("n", "<leader>fr", function()
 	Snacks.picker.recent()
 end, { desc = "Find recent files", silent = true })
-
-vim.keymap.set("n", "<leader>fC", function()
-	require("config.editor-basic.picker.custom.usually-config").config_bookmarks()
-end, { desc = "Find config files", silent = true })
 
 vim.keymap.set("n", "<leader>uC", function()
 	Snacks.picker.colorschemes()

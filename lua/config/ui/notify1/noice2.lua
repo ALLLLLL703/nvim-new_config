@@ -1,9 +1,3 @@
-local oxide_filter = {
-
-	event = "msg_show",
-	find = "^%s*Client md-oxide quit with exit code 101 and signal 0.%s*",
-}
-
 ---@diagnostic disable: missing-fields
 require("noice").setup(
 	---@type  NoiceConfig
@@ -47,31 +41,7 @@ require("noice").setup(
 			},
 		},
 		---@type NoiceRouteConfig[]
-		routes = {
-			{
-				filter = { event = "notify", any = {
-					{ find = "request handler panicked" },
-				} },
-				opts = { skip = true },
-			},
-			{
-				filter = { event = "notify", any = {
-					kind = "undo",
-				} },
-				opts = { skip = true },
-			},
-			{
-				filter = {
-					event = "msg_show",
-					find = "^omnisharp%s*",
-				},
-				opts = { skip = true },
-			},
-			{
-				filter = oxide_filter,
-				opts = { skip = true },
-			},
-		},
+		routes = require("config.ui.notify1.routes").get_routes(),
 	}
 )
 
