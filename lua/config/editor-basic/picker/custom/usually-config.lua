@@ -44,6 +44,7 @@ local project_bookmarks = {
 	{ file = "pyproject.toml", desc = "python manifest" },
 	{ file = "go.mod", desc = "go module" },
 	{ file = ".editorconfig", desc = "editorconfig" },
+	{ file = "CMakeLists.txt", desc = "root cmake" },
 }
 
 --- Project root of the current session: the worktree of the buffer being edited, else the one of the
