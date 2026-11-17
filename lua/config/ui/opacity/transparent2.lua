@@ -45,7 +45,19 @@ require("transparent").setup({
 	exclude_groups = {},
 	-- function: code to be executed after highlight groups are cleared
 	-- Also the user event "TransparentClear" will be triggered
-	on_clear = function() end,
+	--
+	-- bufferline derives the slanted separators from `Normal`'s bg, which is gone once the editor is
+	-- transparent, so `separator_selected.fg` ends up nil and Neovim draws the glyph in `Normal`'s
+	-- bright fg. Give them an explicit shade instead so the slope keeps its shape without going white.
+	on_clear = function()
+		for _, group in ipairs({
+			"BufferLineSeparator",
+			"BufferLineSeparatorSelected",
+			"BufferLineSeparatorVisible",
+		}) do
+			vim.api.nvim_set_hl(0, group, { fg = "#313244" })
+		end
+	end,
 })
 
 -- `setup()` only stores the config. The clearing itself is gated on this flag, which otherwise has
