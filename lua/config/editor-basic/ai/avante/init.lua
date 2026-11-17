@@ -1,3 +1,4 @@
+local Acp = require("config.editor-basic.ai.avante.acp")
 local Mcp = require("config.editor-basic.ai.avante.mcp")
 local Prompts = require("config.editor-basic.ai.avante.prompts")
 
@@ -18,6 +19,7 @@ local opts = {
 		},
 	},
 	providers = require("config.editor-basic.ai.avante.providers").build(),
+	acp_providers = Acp.build(),
 	-- Tool calls run without confirmation prompts, matching the pi setup this
 	-- configuration is ported from.
 	auto_approve_tool_permissions = true,

@@ -44,18 +44,27 @@ avante.nvim (ACP client)  ──ACP over stdio──>  pi-acp (bridge)  ──sp
 npm install -g --prefix ~/.local pi-acp@0.0.34
 ```
 
-`acp_providers` 的一项就是全部接线（定义见 `lua/avante/config.lua:362` 起的那批内置 provider）：
+`acp_providers` 的一项就是全部接线（定义见 `lua/avante/config.lua:383` 起的那批内置 provider）。
+实际落地的文件是 `lua/config/editor-basic/ai/avante/acp.lua`，由 `avante/init.lua` 以
+`acp_providers = Acp.build()` 接入：
 
 ```lua
 acp_providers = {
 	pi = {
 		command = "pi-acp",
 		args = {},
-		-- avante 会先塞 PATH 再合并这里（lua/avante/libs/acp_client.lua:421-439）
-		env = { NODE_NO_WARNINGS = "1" },
+		-- HOME/PATH 显式给出：pi 靠它们找 ~/.pi/agent/auth.json 和 sessions 目录
+		env = {
+			NODE_NO_WARNINGS = "1",
+			HOME = os.getenv("HOME"),
+			PATH = os.getenv("PATH"),
+		},
 	},
 }
 ```
+
+切换：`:AvanteSwitchProvider pi`（别加 `--save`，ACP provider 没有 `model` 字段，
+`api.switch_provider` 的保存分支会取 `provider.model`）。切回：`:AvanteSwitchProvider deepseek`。
 
 然后用已有的 ACP 快捷键切 provider：
 
