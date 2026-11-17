@@ -1,38 +1,37 @@
 local M = {}
 
---- Frequently edited config files. Paths without a `~` are resolved against `stdpath("config")`.
+--- Config files worth reopening often, wherever they live on this machine. Every entry is an
+--- absolute path or starts with `~`, so the picker behaves the same from any working directory.
 ---@type { file: string, desc: string }[]
 local bookmarks = {
-	{ file = "init.lua", desc = "entry point / lazy bootstrap" },
-	{ file = "AGENTS.md", desc = "config instructions" },
-	{ file = "agent-instructions/STYLE.md", desc = "style rules" },
-	{ file = ".luarc.jsonc", desc = "lua_ls workspace" },
-	{ file = "lua/config/init.lua", desc = "config load chain" },
-	{ file = "lua/config/native.lua", desc = "extra runtimepath" },
-	{ file = "lua/config/editor-basic/init.lua", desc = "editor chain" },
-	{ file = "lua/config/editor-basic/comment2.lua", desc = "Comment.nvim patch" },
-	{ file = "lua/config/editor-basic/picker/snacks2.lua", desc = "snacks setup" },
-	{ file = "lua/config/editor-basic/picker/custom/usually-config.lua", desc = "this picker" },
-	{ file = "lua/config/editor-basic/ai/avante/init.lua", desc = "avante" },
-	{ file = "lua/config/editor-basic/ai/avante/credentials.lua", desc = "avante keys" },
-	{ file = "lua/config/ui/notify1/noice2.lua", desc = "noice setup" },
-	{ file = "lua/config/ui/notify1/routes.lua", desc = "noice routes" },
-	{ file = "lua/config/lsp-relative/enable.lua", desc = "enabled LSP servers" },
-	{ file = "lua/keymaps/init.lua", desc = "leader + keymaps" },
-	{ file = "lua/plugins/base.lua", desc = "base plugin specs" },
-	{ file = "after/lsp/metals.lua", desc = "metals overrides" },
-	{ file = "ftplugin/java.lua", desc = "java filetype" },
-	{ file = "lazy-lock.json", desc = "plugin lockfile" },
-	{ file = "~/.pi/agent/AGENTS.md", desc = "global agent rules" },
-	{ file = "~/.config/mcp/mcp.json", desc = "MCP servers (source)" },
-	{ file = "~/.config/mcphub/servers.json", desc = "MCPHub (generated)" },
+	{ file = "~/.config/nvim/init.lua", desc = "neovim entry point" },
+	{ file = "~/.bashrc", desc = "bash" },
+	{ file = "~/.zshenv", desc = "zsh environment" },
+	{ file = "~/.zshrc", desc = "zsh" },
+	{ file = "~/.profile", desc = "login shell profile" },
+	{ file = "~/.gitconfig", desc = "git user config" },
+	{ file = "~/.config/git/config", desc = "git config (xdg)" },
+	{ file = "~/.config/git/ignore", desc = "git global ignore" },
+	{ file = "~/.tmux.conf", desc = "tmux" },
+	{ file = "~/.config/alacritty/alacritty.toml", desc = "alacritty terminal" },
+	{ file = "~/.config/kitty/kitty.conf", desc = "kitty terminal" },
+	{ file = "~/.config/starship.toml", desc = "starship prompt" },
+	{ file = "~/.config/btop/btop.conf", desc = "btop" },
+	{ file = "~/.config/gh/config.yml", desc = "gh cli" },
+	{ file = "~/.npmrc", desc = "npm" },
+	{ file = "~/.ideavimrc", desc = "ideavim" },
+	{ file = "~/.Xresources", desc = "x resources" },
+	{ file = "~/.pi/agent/AGENTS.md", desc = "pi global instructions" },
+	{ file = "~/.pi/agent/settings.json", desc = "pi agent settings" },
+	{ file = "~/.config/mcp/mcp.json", desc = "mcp servers (source)" },
+	{ file = "~/.config/mcphub/servers.json", desc = "mcphub servers (generated)" },
 }
 
---- Resolves a bookmark to an absolute path.
+--- Expands `~` and returns the absolute path.
 ---@param file string Entry from `bookmarks`.
 ---@return string? path Absolute path, or nil when the file is gone.
 local function resolve(file)
-	local path = file:sub(1, 1) == "~" and vim.fs.normalize(file) or vim.fs.joinpath(vim.fn.stdpath("config"), file)
+	local path = vim.fs.normalize(file)
 
 	if not vim.uv.fs_stat(path) then
 		return nil
@@ -51,7 +50,7 @@ function M.config_bookmarks()
 		local path = resolve(entry.file)
 
 		if path then
-			items[#items + 1] = { file = path, text = entry.file, desc = entry.desc }
+			items[#items + 1] = { file = path, text = vim.fn.fnamemodify(path, ":~"), desc = entry.desc }
 		else
 			missing[#missing + 1] = entry.file
 		end
