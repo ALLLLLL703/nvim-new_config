@@ -1,0 +1,112 @@
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.archlinux.org>
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+:Refactor ...:Refactor first:Refactor first:Refactor first:Refactor first:Refactor last
+Program received signal SIGABRT, Aborted.
+0x00007ffff7a9a11c in ?? () from /usr/lib/libc.so.6
+
+Thread 1 (Thread 0x7ffff7e10bc0 (LWP 21095) "nvim"):
+#0  0x00007ffff7a9a11c in ?? () from /usr/lib/libc.so.6
+No symbol table info available.
+#1  0x00007ffff7a3e5d0 in raise () from /usr/lib/libc.so.6
+No symbol table info available.
+#2  0x00007ffff7a25685 in abort () from /usr/lib/libc.so.6
+No symbol table info available.
+#3  0x00005555555fbc51 in u_rollback (uc=0x7fffffffa6e8, buf=0x555555cc03f0) at /home/runner/work/neovim/neovim/src/nvim/undo.c:3418
+        count = <optimized out>
+        cs = {cs_flags = 0, cs_mode = 2, cs_curwin = 1000, cs_curwin_xtab = false, cs_prevwin = 0, cs_curtab = 0x0, cs_same_win = false, cs_visual_active = false, cs_prompt_insert = 0, cs_new_curwin = 1001, cs_new_curbuf = {br_buf = 0x555555cc03f0, br_fnum = 2, br_buf_free_count = 0}, cs_ctxwin_idx = -1, cs_target_win = 0, cs_target_old_pos = {lnum = 0, col = 0, coladd = 0}, cs_did_chdir = false, cs_dirs_tab = 0, cs_w_localdir = 0x0, cs_b_localdir = 0x0, cs_tp_localdir = 0x0, cs_globaldir = 0x0, cs_cwd = 0x0, cs_apply_acd = false}
+#4  0x0000555555980e41 in cmdpreview_restore_state (cpinfo=<optimized out>) at /home/runner/work/neovim/neovim/src/nvim/ex_getln.c:2576
+        cp_bufinfo = {buf = 0x555555cc03f0, save_b_p_ma = 1, save_b_changed = 0, save_b_op_start = {lnum = 0, col = 0, coladd = 0}, save_b_op_end = {lnum = 0, col = 0, coladd = 0}, undo_checkpoint = {uc_oldhead = 0x0, uc_newhead = 0x0, uc_curhead = 0x0, uc_numhead = 0, uc_synced = true, uc_seq_last = 0, uc_save_nr_last = 0, uc_seq_cur = 0, uc_time_cur = 0, uc_save_nr_cur = 0, uc_line_ptr = 0x0, uc_line_lnum = 0, uc_line_colnr = 0, uc_undolevels = -123456, uc_changedtick = 1}}
+        buf = 0x555555cc03f0
+        i = 1
+#5  cmdpreview_may_show.constprop.0 (s=<optimized out>) at /home/runner/work/neovim/neovim/src/nvim/ex_getln.c:2720
+        ea = {arg = 0x555555c9e8b9 "last", args = 0x0, arglens = 0x0, argc = 0, nextcmd = 0x0, cmd = 0x555555c9e8b0 "Refactor last", cmdlinep = 0x7fffffffa670, cmdline_tofree = 0x0, cmdidx = CMD_USER, argt = 134217876, skip = 0, forceit = 0, addr_count = 0, line1 = 1, line2 = 1, addr_type = ADDR_NONE, flags = 0, do_ecmd_cmd = 0x0, do_ecmd_lnum = 0, append = 0, usefilter = 0, amount = 0, regname = 0, force_bin = 0, read_edit = 0, mkdir_p = 0, force_ff = 0, force_enc = 0, bad_char = 0, useridx = 4, errmsg = 0x0, ea_getline = 0x0, cookie = 0x0, cstack = 0x7fffffffa0f0, magic = {file = false, bar = false}}
+        cmod = {cmod_flags = 0, cmod_split = 0, cmod_tab = 0, cmod_filter_pat = 0x0, cmod_filter_regmatch = {regprog = 0x0, startp = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, endp = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, rm_matchcol = 0, rm_ic = false}, cmod_filter_force = false, cmod_verbose = 0, cmod_save_ei = 0x0, cmod_did_sandbox = 0, cmod_verbose_save = 0, cmod_save_msg_silent = 0, cmod_save_msg_scroll = 0, cmod_did_esilent = 0}
+        cmdpreview_type = <optimized out>
+        cmdline = 0x555555c9e8b0 "Refactor last"
+        errormsg = 0x0
+        cpinfo = {win_info = {size = 2, capacity = 8, items = 0x555555ccfb10}, buf_info = {size = 2, capacity = 8, items = 0x555555cd7b70}, save_hls = true, save_cmdmod = {cmod_flags = 0, cmod_split = 0, cmod_tab = 0, cmod_filter_pat = 0x0, cmod_filter_regmatch = {regprog = 0x0, startp = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, endp = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, rm_matchcol = 0, rm_ic = false}, cmod_filter_force = false, cmod_verbose = 0, cmod_save_ei = 0x0, cmod_did_sandbox = 0, cmod_verbose_save = 0, cmod_save_msg_silent = 0, cmod_save_msg_scroll = 0, cmod_did_esilent = 0}, save_view = {ga_len = 5, ga_maxlen = 5, ga_itemsize = 4, ga_growsize = 1, ga_data = 0x555555ccd020}}
+        icm_split = <optimized out>
+        cmdpreview_buf = <optimized out>
+        cmdpreview_win = <optimized out>
+        err = {type = kErrorTypeNone, msg = 0x0}
+#6  0x000055555571d78b in command_line_changed (s=0x7fffffffad80) at /home/runner/work/neovim/neovim/src/nvim/input.c:1913
+        prev_cmdpreview = false
+#7  0x00005555558e5155 in state_enter (s=0x7fffffffad80) at /home/runner/work/neovim/neovim/src/nvim/state.c:115
+        waiting = <optimized out>
+        check_result = <optimized out>
+        key = <optimized out>
+        save_state_waiting = <optimized out>
+        execute_result = <optimized out>
+        getkey = <optimized out>
+#8  0x000055555571df75 in command_line_enter (firstc=<optimized out>, count=<optimized out>, indent=<optimized out>, clear_ccline=<optimized out>) at /home/runner/work/neovim/neovim/src/nvim/ex_getln.c:856
+        save_cmdpreview = <optimized out>
+        state = {state = {check = 0x55555571f030 <command_line_check>, execute = 0x55555571f770 <command_line_execute>, prompt = false}, firstc = 58, count = 1, indent = 0, c = 9, gotesc = false, do_abbr = true, lookfor = 0x0, lookforlen = 0, hiscnt = 10000, save_hiscnt = 0, histype = 0, is_state = {search_start = {lnum = 1, col = 0, coladd = 0}, save_cursor = {lnum = 1, col = 0, coladd = 0}, winid = 1000, init_viewstate = {vs_curswant = 0, vs_set_curswant = false, vs_leftcol = 0, vs_skipcol = 0, vs_topline = 1, vs_topfill = 0, vs_botline = 2, vs_empty_rows = 21}, old_viewstate = {vs_curswant = 0, vs_set_curswant = false, vs_leftcol = 0, vs_skipcol = 0, vs_topline = 1, vs_topfill = 0, vs_botline = 2, vs_empty_rows = 21}, match_start = {lnum = 1, col = 0, coladd = 0}, match_end = {lnum = 0, col = 0, coladd = 0}, did_incsearch = false, incsearch_postponed = false}, did_wild_list = false, wim_index = 2, save_msg_scroll = 0, save_State = 1, prev_cmdpos = 14, prev_cmdbuff = 0x555555cd0240 "Refactor first", save_p_icm = 0x555555ccd220 "nosplit", skip_pum_redraw = false, some_key_typed = true, ignore_drag_release = true, xpc = {xp_pattern = 0x555555cd01d9 "last", xp_context = 32, xp_pattern_len = 5, xp_prefix = XP_PREFIX_NONE, xp_arg = 0x0, xp_luaref = 80, xp_script_ctx = {sc_sid = 1, sc_seq = 2, sc_lnum = 0, sc_chan = 0}, xp_backslash = 0, xp_shell = false, xp_numfiles = 2, xp_col = 9, xp_selected = 1, xp_orig = 0x555555ccee70 "", xp_files = 0x555555ccf7f0, xp_files_abbr = 0x0, xp_files_kind = 0x0, xp_files_menu = 0x0, xp_files_info = 0x0, xp_line = 0x555555cd01d0 "Refactor last", xp_buf = '\000' <repeats 255 times>, xp_search_dir = kDirectionNotSet, xp_pre_incsearch_pos = {lnum = 0, col = 0, coladd = 0}}, b_im_ptr = 0x0, b_im_ptr_buf = 0x0, cmdline_type = 58, event_cmdlineleavepre_triggered = false, did_hist_navigate = false}
+        s = 0x7fffffffad80
+        save_ccline = {cmdbuff = 0x555555cca7e0 "", cmdbufflen = 0, cmdlen = 0, cmdpos = -1, cmdspos = -1, cmdfirstc = 134217876, cmdindent = 1, cmdprompt = 0x555555cca7e0 "", hl_id = -685916928, overstrike = 772986779, xpc = 0x0, xp_context = 1439208360, xp_arg = 0x0, input_fn = -21216, cmdbuff_replaced = 255, prompt_id = 1439208421, highlight_callback = {data = {funcref = 0x555555a5e94f <uv__statx+31> "A\\\303ff.\017\037\204", partial = 0x555555a5e94f <uv__statx+31>, luaref = 1436936527, expr = 0x555555a5e94f <uv__statx+31> "A\\\303ff.\017\037\204"}, type = 1439482464}, last_colors = {prompt_id = 1436870408, cmdbuff = 0x100000001fff <error: Cannot access memory at address 0x100000001fff>, colors = {size = 0, capacity = 4294967296001, items = 0x81a4000003d8}}, level = 285244, prev_ccline = 0x19c, special_char = 8 '\b', special_shift = false, redraw_state = kCmdRedrawNone, one_key = 112, mouse_used = 0x6afda2f7}
+        did_save_ccline = <optimized out>
+        err = {type = kErrorTypeNone, msg = 0x0}
+        firstcbuf = ":"
+        p = <optimized out>
+        cmdline_level = 1
+        __PRETTY_FUNCTION__ = "command_line_enter"
+#9  0x000055555570a102 in do_cmdline (cmdline=<optimized out>, fgetline=0x55555571f580 <getexline>, cookie=0x0, flags=0) at /home/runner/work/neovim/neovim/src/nvim/ex_docmd.c:530
+        indent = 0
+        current_line_before = <optimized out>
+        next_cmdline = <optimized out>
+        cmdline_copy = 0x0
+        used_getline = <optimized out>
+        msg_didout_before_start = <optimized out>
+        count = 0
+        did_inc = <optimized out>
+        did_block = false
+        retval = 1
+        cstack = {cs_flags = {0 <repeats 50 times>}, cs_pending = '\000' <repeats 49 times>, cs_pend = {csp_rv = {0x0 <repeats 50 times>}, csp_ex = {0x0 <repeats 50 times>}}, cs_forinfo = {0x0 <repeats 50 times>}, cs_line = {0 <repeats 50 times>}, cs_idx = -1, cs_looplevel = 0, cs_trylevel = 0, cs_emsg_silent_list = 0x0, cs_lflags = 0}
+        lines_ga = {ga_len = 0, ga_maxlen = 0, ga_itemsize = 16, ga_growsize = 10, ga_data = 0x0}
+        current_line = 0
+        fname = 0x0
+        breakpoint = 0x0
+        dbg_tick = 0x0
+        debug_saved = {trylevel = 0, force_abort = 0, caught_stack = 0x0, vv_exception = 0x0, vv_throwpoint = 0x0, did_emsg = 0, got_int = 0, did_throw = false, need_rethrow = 0, check_cstack = 0, current_exception = 0x0}
+        private_msg_list = 0x0
+        cmd_getline = <optimized out>
+        cmd_cookie = <optimized out>
+        cmd_loop_cookie = {lines_gap = 0x0, current_line = 0, repeating = 0, lc_getline = 0x2d, cookie = 0x81a4}
+        saved_msg_list = 0x0
+        real_cookie = <optimized out>
+        getline_is_func = <optimized out>
+        initial_trylevel = <optimized out>
+        recursive = 0
+#10 0x000055555581c545 in nv_colon (cap=0x7fffffffbc68) at /home/runner/work/neovim/neovim/src/nvim/normal.c:3169
+        cmd_result = <optimized out>
+        is_cmdkey = false
+        is_lua = false
+#11 0x00005555558134ab in normal_execute (state=0x7fffffffbbf0, key=<optimized out>) at /home/runner/work/neovim/neovim/src/nvim/normal.c:1253
+        frame = {origin = {buf = {br_buf = 0x555555c798f0, br_fnum = 1, br_buf_free_count = 0}, win = 0x555555c76ae0, pos = {lnum = 1, col = 0, coladd = 0}, mcursor = 0, tick = 2, maptick = 1}, staged = {type = kAComp, spec = {count = 0, regname = 0, op = 0, op_extra = 0, motion_force = 0, cmd = 0, cmd2 = 0, cmdarg = 0, body = {size = 0, capacity = 0, items = 0x0}}, origin = {buf = {br_buf = 0x0, br_fnum = 0, br_buf_free_count = 0}, win = 0x0, pos = {lnum = 0, col = 0, coladd = 0}, mcursor = 0, tick = 0, maptick = 0}, atoms = {size = 0, capacity = 0, items = 0x0}, keys = 0x0, text = 0x0, lhs = 0x0, undoseq = 0, changed = false, moved = false, remap = false, cascaded = false}, parent = 0x0, visual = {start = {lnum = 0, col = 0, coladd = 0}, active = false, select = false, select_reg = 0, select_exclu_adj = false, restart_select = 0, need_end = false, reselect = 0, mode = 118, resel = {mode = 0, line_count = 0, vcol = 0}}, keytyped = true, keyclass = 4, ex_normal = 0, captures = 0, global_ops = 0, beeps = 0, id = 2, follow = false, consumers = false, reg_ts = 0, payload_start = 18446744073709551615, payload_end = 0, redo_frame = 0, cmdline = 0x0}
+        s = 0x7fffffffbbf0
+        __PRETTY_FUNCTION__ = "normal_execute"
+#12 0x00005555558e5155 in state_enter (s=0x7fffffffbbf0) at /home/runner/work/neovim/neovim/src/nvim/state.c:115
+        waiting = <optimized out>
+        check_result = <optimized out>
+        key = <optimized out>
+        save_state_waiting = <optimized out>
+        execute_result = <optimized out>
+        getkey = <optimized out>
+#13 0x00005555558114d9 in normal_enter () at /home/runner/work/neovim/neovim/src/nvim/normal.c:523
+        state = {state = {check = 0x5555558116a0 <normal_check>, execute = 0x555555812e70 <normal_execute>, prompt = false}, command_finished = false, ctrl_w = false, need_flushbuf = false, set_prevcount = false, previous_got_int = false, toplevel = true, oa = {op_type = 0, regname = 0, motion_type = kMTCharWise, motion_force = 0, use_reg_one = false, inclusive = false, end_adjusted = false, start = {lnum = 0, col = 0, coladd = 0}, end = {lnum = 0, col = 0, coladd = 0}, cursor_start = {lnum = 0, col = 0, coladd = 0}, restore_cursor = false, line_count = 0, empty = false, is_VIsual = false, from_visual = false, start_vcol = 0, end_vcol = 0, prev_opcount = 0, prev_count0 = 0, excl_tr_ws = false}, ca = {oap = 0x7fffffffbc10, prechar = 0, cmdchar = 58, nchar = 0, nchar_composing = '\000' <repeats 31 times>, nchar_len = 0, extra_char = 0, opcount = 0, count0 = 0, count1 = 1, arg = 0, retval = 0, searchbuf = 0x0}, mapped_len = 0, old_mapped_len = 0, idx = 60, c = 58, old_col = 0, old_pos = {lnum = 1, col = 0, coladd = 0}}
+        prev_oap = 0x0
+#14 0x00005555555fd3f9 in main (argc=<optimized out>, argv=<optimized out>) at /home/runner/work/neovim/neovim/src/nvim/main.c:702
+        fname = <optimized out>
+        params = {argc = 12, argv = 0x7fffffffd0f8, use_vimrc = 0x7fffffffd715 "NONE", clean = false, n_commands = 2, commands = {0x555555c94a80 "\004\262\231", 0x555555c7efd0 "p\341\310UUU", 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, cmds_tofree = "\001\001\000\000\000\000\000\000\000", n_pre_commands = 0, pre_commands = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, luaf = 0x0, lua_arg0 = -1, edit_type = 0, tagname = 0x0, use_ef = 0x0, exmode = false, input_istext = false, no_swap_file = 1, use_debug_break_level = -1, window_count = 1, window_layout = 0, diff_mode = 0, listen_addr = 0x0, remote = 0, server_addr = 0x0, scriptin = 0x0, scriptout = 0x0, scriptout_append = false, had_stdin_file = false}
+        stdin_type = <optimized out>
+        stdio_rpc = <optimized out>
+        has_term = <optimized out>
+        use_builtin_ui = <optimized out>
+        remote_ui = <optimized out>
+        use_remote_ui = <optimized out>
+        vimrc_none = <optimized out>
+        __PRETTY_FUNCTION__ = "main"
