@@ -1,4 +1,5 @@
 require("config.ui.theme")
+require("config.ui.icon")
 require("config.ui.highlight")
 require("config.ui.whichkey")
 require("config.ui.diagnostic")
